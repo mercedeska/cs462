@@ -9,7 +9,7 @@ ruleset NameOrMonkey {
         // domain "exampley.com"
     }
     rule first_task {
-        select when pageview ".*" 
+        select when pageview '.*'
         // Display notification that will not fade.
         pre {}
         {
@@ -19,7 +19,7 @@ ruleset NameOrMonkey {
     }
 
     rule second_task {
-        select when pageview ".*"
+        select when pageview '.*'
         pre {}
         {
             notify ("hello 3", "whatever");
