@@ -11,8 +11,8 @@ ruleset NameOrMonkey {
     rule first_task {
         select when pageview ".*" 
         // Display notification that will not fade.
-        //notify("Hello World", "This is a sample rule.") with sticky = true;
-        notify("The second box", "I wanted to put 2 on...") with width = "400";
+        //notify("Hello World", "This is a sample rule.");
+        notify("The second box", "I wanted to put 2 on...");
     }
 
     rule second_task {
