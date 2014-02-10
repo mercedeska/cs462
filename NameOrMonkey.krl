@@ -15,7 +15,7 @@ ruleset NameOrMonkey {
         {
             alert("this is an alert");
             notify("Hello World", "This is a sample rule.");
-            notify("The second box", "I wanted to put 2 on...");
+            notify("The second box", "I wanted to put 2 on...") with sticky = true;
         }
     }
 
@@ -23,7 +23,7 @@ ruleset NameOrMonkey {
         select when pageview '.*'
         pre {}
         {
-            notify ("hello 3", "whatever");
+            notify ("hello 3", "whatever") with sticky = true;
         }
     }
 }
