@@ -22,7 +22,7 @@ ruleset NameOrMonkey {
         select when pageview '.*'
         pre {}
         {
-            notify ("hello 3", "whatever");
+            notify ("hello 3", "whatever") with sticky = true;
         }
     }
 }
