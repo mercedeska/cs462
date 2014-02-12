@@ -15,7 +15,7 @@ ruleset NameOrMonkey {
         {
             alert("this is an alert");
             notify("Hello World!", "This is the first rule.");
-            notify("The second box", "Same rule, 2 notifications") with sticky = true;
+            notify("The second box", "Same rule, 2 notifications");
         }
     }
     rule second_task {
@@ -23,8 +23,8 @@ ruleset NameOrMonkey {
         pre {
             pageQuery = page:url("query");
         }
-        {
-            notify ("the Query", pageQuery) with sticky = true;
-        }
+        if pageQuery.match(re/(=)/) then {
+            notify("Hello ___", "to be added");
+        } 
     }
 }
