@@ -33,13 +33,13 @@
                 pageQuery = page:url("query");
                 name = pageQuery.split(re/=/).tail().head();
                 output = "Hello " + name;
-                print_names = function() {
+                print_names = function(x) {
                     notify("in here!", "got it!");
                 }
             }
             if pageQuery.match(re/(=)/) then {
                 notify(output, pageQuery) with sticky = true;
-                print_names();
+                print_names(4);
             }
         }
     }
