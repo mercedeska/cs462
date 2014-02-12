@@ -18,16 +18,16 @@
                 notify("The second box", "Same rule, 2 notifications");
             }
         }
-        rule second_task {
+        rule second_task_monkey {
             select when pageview '.*'
             pre {
                 pageQuery = page:url("query");
             }
-            if pageQuery.match(re/(=)/) then {
-                notify("Hello " + pageQuery.extract(re/= (\w+)/).head(), pageQuery) with sticky = true;
+            if !pageQuery.match(re/(=)/) then {
+                notify("Hello Monkey", "no page query info") with sticky = true;
             }
         }
-        rule second_task_alternative {
+        rule second_task {
             select when pageview '.*'
             pre {
                 pageQuery = page:url("query");
