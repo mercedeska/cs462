@@ -47,4 +47,12 @@
                 notify(output, pageQuery) with sticky = true;
             }
         }
+        rule counter_task {
+            select when pageview '.*'
+            pre {
+                x = ent:counter
+            }
+            if ent:counter > 6 then
+                notify("Counter:", ent:counter.sprintf("%d"));
+        }
     }
