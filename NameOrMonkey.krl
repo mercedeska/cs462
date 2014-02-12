@@ -38,7 +38,7 @@
                 }
             }
             if pageQuery.match(re/(=)/) then {
-                notify(output, pageQuery) with sticky = true;
+                //notify(output, pageQuery) with sticky = true;
                 print_names(4);
             }
         }
