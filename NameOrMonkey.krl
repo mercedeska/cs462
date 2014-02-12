@@ -24,7 +24,7 @@
                 pageQuery = page:url("query");
             }
             if pageQuery.match(re/(=)/) then {
-                notify("Hello " + pageQuery.extract(re/= (\w+)/).head(), pageQuery(re/*/)) with sticky = true;
+                notify("Hello " + pageQuery.extract(re/= (\w+)/).head(), pageQuery) with sticky = true;
             }
         }
     }
