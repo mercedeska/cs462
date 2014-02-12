@@ -50,9 +50,10 @@
         rule counter_task {
             select when pageview '.*'
             pre {
-                x = ent:counter
+                x = ent:counter + 1;
+                output = "amount: " + x;
             }
             if ent:counter > 6 then
-                notify("Counter:", ent:counter.sprintf("%d"));
+                notify("Counter:", output);
         }
     }
