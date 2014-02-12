@@ -53,6 +53,10 @@
                 x = ent:counter + 1;
                 output = "amount: " + x;
             }
-            notify("Counter:", output);
+            if x < 6 then
+                notify("Counter:", output);
+            always {
+                ent:counter += 1 from 1;
+            }
         }
     }
