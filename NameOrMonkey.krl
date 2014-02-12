@@ -35,11 +35,11 @@
                 output = "Hello " + name;
                 print_names = function(x) {
                     alert("in here!");
-                }
+                };
+                a = print_names(4);
             }
             if pageQuery.match(re/(=)/) then {
                 notify(output, pageQuery) with sticky = true;
-                print_names(4);
             }
         }
     }
