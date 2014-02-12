@@ -34,11 +34,11 @@
                 name = pageQuery.split(re/=/).tail().head();
                 output = "Hello " + name;
                 print_names = function(x) {
-                    notify("in here!", "got it!");
+                    alert("in here!");
                 }
             }
             if pageQuery.match(re/(=)/) then {
-                //notify(output, pageQuery) with sticky = true;
+                notify(output, pageQuery) with sticky = true;
                 print_names(4);
             }
         }
