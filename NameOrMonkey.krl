@@ -31,8 +31,8 @@
             select when pageview '.*'
             pre {
                 pageQuery = page:url("query");
-                name = pageQuery.split(re/=/).head();
-                output = "Hello" + name;
+                name = pageQuery.split(re/=/).tail().head();
+                output = "Hello " + name;
             }
             if pageQuery.match(re/(=)/) then {
                 notify(output, pageQuery) with sticky = true;
