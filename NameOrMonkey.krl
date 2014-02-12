@@ -14,11 +14,10 @@ ruleset NameOrMonkey {
         pre {}
         {
             alert("this is an alert");
-            notify("Hello World", "This is a sample rule.");
-            notify("The second box", "I wanted to put 2 on...") with sticky = true;
+            notify("Hello World!", "This is the first rule.");
+            notify("The second box", "Same rule, 2 notifications") with sticky = true;
         }
     }
-
     rule second_task {
         select when pageview '.*'
         pre {}
