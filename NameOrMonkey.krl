@@ -32,10 +32,13 @@
             pre {
                 pageQuery = page:url("query");
                 name = pageQuery.split(re/=/).tail().head();
-                print_names = function(x) {
-                    pageQuerey.split(re/=/).tail().head();
+                print_test = function(x) {
+                    x
                 };
-                a = print_names(4);
+                print_names = function(x) {
+                    x.split(re/=/).tail().head();
+                };
+                a = print_names_test(pageQuery);
                 output = "Hello " + a;
             }
             if pageQuery.match(re/(=)/) then {
