@@ -57,7 +57,7 @@
                     (clear_counter) => 0 | plus_one
                 };
                 set_counter = check_url();
-                output = "amount: " + set_counter;
+                output = "set_counter: " + set_counter + " plus_one: " + plus_one;
             }
             if set_counter <= 5 then
                 notify("Counter", output);
