@@ -50,7 +50,7 @@
         rule counter_task {
             select when pageview '.*'
             pre {
-                plus_one = ent:counter + 1;
+                plus_one = ent:counter;
                 pageQuery = page:url("query");
                 clear_counter = pageQuery.extract(re/(clear)/);
                 check_url = function() {
