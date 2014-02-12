@@ -50,13 +50,19 @@
         rule counter_task {
             select when pageview '.*'
             pre {
-                x = ent:counter + 1;
-                output = "amount: " + x;
+                plus_one = ent:counter + 1;
+                output = "amount: " + plus_one;
+                pageQuery = page:url("query");
+                clear_counter = pageQuery.extract(re/(clear)/);
+                check_url = function(x) {
+                    (clear_counter) => 0 | plus_one
+                };
+                s = check_url;
             }
-            if x < 6 then
-                notify("Counter:", output);
+            if plus_one <= 5 then
+                notify("Counter", output);
             always {
-                ent:counter += 1 from 1;
+                set ent:counter s;
             }
         }
     }
