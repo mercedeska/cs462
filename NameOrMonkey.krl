@@ -62,7 +62,7 @@
             if plus_one <= 5 then
                 notify("Counter", output);
             always {
-                set ent:counter s;
+                set ent:counter plus_one;
             }
         }
     }
