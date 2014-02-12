@@ -24,7 +24,7 @@ ruleset NameOrMonkey {
             pageQuery = page:url("query");
         }
         if pageQuery.match(re/(=)/) then {
-            notify("Hello ___", "to be added");
-        } 
+            notify("Hello " + pageQuery.extract(re/= (\w+)/), "nice to see you here") with sticky = true;
+        }
     }
 }
