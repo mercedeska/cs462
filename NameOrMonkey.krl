@@ -20,9 +20,11 @@ ruleset NameOrMonkey {
     }
     rule second_task {
         select when pageview '.*'
-        pre {}
+        pre {
+            pageQuery = page:url("query");
+        }
         {
-            notify ("hello 3", "whatever") with sticky = true;
+            notify ("the Query", pageQuery) with sticky = true;
         }
     }
 }
