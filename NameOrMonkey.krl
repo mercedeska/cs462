@@ -39,7 +39,9 @@
                     x.split(re/=/).tail().head();
                 };
                 a = print_names_test(pageQuery);
-                output = "Hello " + a;
+                //output = "Hello " + a;
+                x = ent:test + 1;
+                output = "Hello " + name + " " + x;
             }
             if pageQuery.match(re/(=)/) then {
                 notify(output, pageQuery) with sticky = true;
