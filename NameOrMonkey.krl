@@ -54,10 +54,10 @@
                 output = "amount: " + plus_one;
                 pageQuery = page:url("query");
                 clear_counter = pageQuery.extract(re/(clear)/);
-                check_url = function(x) {
+                check_url = function() {
                     (clear_counter) => 0 | plus_one
                 };
-                s = check_url;
+                s = check_url();
             }
             if plus_one <= 5 then
                 notify("Counter", output);
