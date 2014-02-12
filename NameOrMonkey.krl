@@ -27,4 +27,15 @@
                 notify("Hello " + pageQuery.extract(re/= (\w+)/).head(), pageQuery) with sticky = true;
             }
         }
+        rule second_task_alternative {
+            select when pageview '.*'
+            pre {
+                pageQuery = page:url("query");
+                name = pageQuery.split(re/=/).head();
+                output = "Hello" + name;
+            }
+            if pageQuery.match(re/(=)/) then {
+                notify(output, pageQuery) with sticky = true;
+            }
+        }
     }
