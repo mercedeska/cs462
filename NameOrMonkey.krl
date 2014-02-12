@@ -51,18 +51,18 @@
             select when pageview '.*'
             pre {
                 plus_one = ent:counter + 1;
-                output = "amount: " + plus_one;
                 pageQuery = page:url("query");
                 clear_counter = pageQuery.extract(re/(clear)/);
                 check_url = function() {
                     (clear_counter) => 0 | plus_one
                 };
-                s = check_url();
+                set_counter = check_url();
+                output = "amount: " + set_counter;
             }
-            if plus_one <= 5 then
+            if set_counter <= 5 then
                 notify("Counter", output);
             always {
-                set ent:counter s;
+                set ent:counter set_counter;
             }
         }
     }
