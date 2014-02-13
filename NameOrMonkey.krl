@@ -17,7 +17,16 @@
                 notify("Hello World!", "This is the first rule.");
                 notify("The second box", "Same rule, 2 notifications");
             }
-        }            
+        }
+        rule none_then_monkey {
+            select when pageview '.*'
+            pre {
+                pageQuery = page:url("query");
+                a = pageQuery.replace(re/=/);
+            }
+            if a.length() == 0 then
+                notify("Hello Monkey", "");
+        }
         rule second_task {
             select when pageview '.*'
             pre {
