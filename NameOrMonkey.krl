@@ -22,17 +22,16 @@
             select when pageview '.*'
             pre {
                 pageQuery = page:url("query");
-                name = pageQuery.split(re/=/).tail().head();
-                print_test = function(x) {
-                    x
+                no_and = pageQuery.replace(re/&/g,"=");
+                a = no_and.split(re/=/);
+                get_name = function(x) {
+                    find_name = a.index("name");
+                    ret = (find_name < 0) => "Monkey" |
+                        a.slice(find_name, find_name).head();
+                    ret
                 };
-                print_names = function(x) {
-                    x.split(re/=/).tail().head();
-                };
-                a = print_names_test(pageQuery);
-                //output = "Hello " + a;
-                x = ent:test + 1;
-                output = "Hello " + name + " " + x;
+                name = get_name(a);
+                output = "Hello: " + name                
             }
             if pageQuery.match(re/(=)/) then {
                 notify(output, pageQuery) with sticky = true;
