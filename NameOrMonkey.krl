@@ -50,7 +50,6 @@
                 ent:counter +=1 from 1;
             }
         }
-
         rule clear_task {
             select when pageview '.*'
             pre {
@@ -58,7 +57,6 @@
                 no_and = pageQuery.replace(re/&/g,"=");
                 notify = true;
             }
-            if clear_counter then
-                notify("cleared", no_and);
+            notify("cleared", no_and)
         }
     }
