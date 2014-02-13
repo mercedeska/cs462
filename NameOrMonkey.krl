@@ -61,5 +61,8 @@
             }
             if clear_location >= 0 then
                 notify(output, no_and)
+            fired {
+                clear ent:counter;
+            }
         }
     }
