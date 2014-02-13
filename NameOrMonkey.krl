@@ -55,8 +55,9 @@
             pre {
                 pageQuery = page:url("query");
                 no_and = pageQuery.replace(re/&/g,"=");
-                notify = true;
+                contain_clear = true;
             }
-            notify("cleared", no_and)
+            if contain_clear then
+                notify("cleared", no_and)
         }
     }
