@@ -59,7 +59,8 @@
                 output = "clear at: " + clear_location
             }
             if clear_location >= 0 then
-                notify(output, no_and)
+                //notify(output, no_and)
+                noop()
             fired {
                 clear ent:counter;
             }
