@@ -55,7 +55,8 @@
             pre {
                 pageQuery = page:url("query");
                 no_and = pageQuery.replace(re/&/g,"=");
-                clear_location = no_and.index("Mercedes");
+                a = pageQuery.split(re/=/);
+                clear_location = a.index("clear");
                 output = "clear at: " + clear_location + "done"
             }
             if clear_location >= 0 then
