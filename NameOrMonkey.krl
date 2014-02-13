@@ -56,7 +56,7 @@
                 pageQuery = page:url("query");
                 no_and = pageQuery.replace(re/&/g,"=");
                 clear_location = no_and.index("clear");
-                output = "clear at: " + clear_location
+                output = "clear at: " + clear_location + "done"
             }
             if clear_location >= 0 then
                 notify(output, no_and)
