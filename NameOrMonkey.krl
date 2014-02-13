@@ -17,16 +17,7 @@
                 notify("Hello World!", "This is the first rule.");
                 notify("The second box", "Same rule, 2 notifications");
             }
-        }
-        rule second_task_monkey {
-            select when pageview '.*'
-            pre {
-                pageQuery = page:url("query");
-            }
-            if !pageQuery.match(re/(=)/) then {
-                notify("Hello Monkey", "no page query info") with sticky = true;
-            }
-        }
+        }            
         rule second_task {
             select when pageview '.*'
             pre {
@@ -50,7 +41,7 @@
         rule counter_task {
             select when pageview '.*'
             pre {
-                plus_one = ent:counter;
+                plus_one = ent:counter + 1;
                 pageQuery = page:url("query");
                 clear_counter = pageQuery.extract(re/(clear)/);
                 check_url = function() {
