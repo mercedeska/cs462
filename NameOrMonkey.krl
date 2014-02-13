@@ -27,7 +27,7 @@
                 get_name = function(x) {
                     find_name = a.index("name");
                     ret = (find_name < 0) => "Monkey" |
-                        a.slice(find_name, find_name).head();
+                        a.slice(find_name+1, find_name+1).head();
                     ret
                 };
                 name = get_name(a);
