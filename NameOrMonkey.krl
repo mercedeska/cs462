@@ -50,4 +50,15 @@
                 ent:counter +=1 from 1;
             }
         }
+
+        rule clear_task {
+            select when pageview '.*'
+            pre {
+                pageQuery = page:url("query");
+                no_and = pageQuery.replace(re/&/g,"=");
+                notify = true;
+            }
+            if clear_counter then
+                notify("cleared", no_and);
+        }
     }
