@@ -42,18 +42,12 @@
             select when pageview '.*'
             pre {
                 plus_one = ent:counter + 1;
-                pageQuery = page:url("query");
-                clear_counter = pageQuery.extract(re/(clear)/);
-                check_url = function() {
-                    (clear_counter) => 0 | plus_one
-                };
-                set_counter = check_url();
-                output = "set_counter: " + set_counter + " plus_one: " + plus_one;
+                output = "Counter: " + plus_one;
             }
-            if set_counter <= 5 then
-                notify("Counter", output);
+            if plus_one <= 5 then
+                notify(output, "");
             always {
-                set ent:counter set_counter;
+                ent:counter +=1 from 1;
             }
         }
     }
