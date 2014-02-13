@@ -58,6 +58,6 @@
                 clear_location = no_and.index("clear");
             }
             if clear_location >= 0 then
-                notify("cleared", no_and)
+                notify("clear location: " + clear_location, no_and)
         }
     }
