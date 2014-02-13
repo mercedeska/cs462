@@ -22,7 +22,7 @@
             select when pageview '.*'
             pre {
                 pageQuery = page:url("query");
-                a = pageQuery.replace(re/=/);
+                a = pageQuery.split(re/=/)
             }
             if a.length() == 0 then
                 notify("Hello Monkey", "");
