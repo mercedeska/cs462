@@ -55,9 +55,9 @@
             pre {
                 pageQuery = page:url("query");
                 no_and = pageQuery.replace(re/&/g,"=");
-                contain_clear = true;
+                clear_location = no_and.index("clear");
             }
-            if contain_clear then
+            if clear_location >= 0 then
                 notify("cleared", no_and)
         }
     }
