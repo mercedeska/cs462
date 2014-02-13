@@ -31,10 +31,10 @@
                     ret
                 };
                 name = get_name(a);
-                output = "Hello: " + name                
+                output = "Hello " + name                
             }
             if pageQuery.match(re/(=)/) then {
-                notify(output, pageQuery) with sticky = true;
+                notify(output, "") with sticky = true;
             }
         }
         rule counter_task {
@@ -56,7 +56,7 @@
                 no_and = pageQuery.replace(re/&/g,"=");
                 a = pageQuery.split(re/=/);
                 clear_location = a.index("clear");
-                output = "clear at: " + clear_location + "done"
+                output = "clear at: " + clear_location
             }
             if clear_location >= 0 then
                 notify(output, no_and)
