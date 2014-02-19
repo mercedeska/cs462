@@ -16,8 +16,7 @@ ruleset WebRuleExersices
 
         }
         {
-            alert("trying this now");
-            notify("Hello World", q.join("---")) with sticky = true;
+            notify("Hello World", q.length()) with sticky = true;
         }
     }
 }
