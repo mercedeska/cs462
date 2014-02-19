@@ -15,6 +15,9 @@ ruleset WebRuleExersices
             q = q_html.query("div#main");
 
         }
-        notify("Hello World", q.join("---")) with sticky = true;
+        {
+            alert("trying this now");
+            notify("Hello World", q.join("---")) with sticky = true;
+        }
     }
 }
