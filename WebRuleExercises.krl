@@ -1,15 +1,20 @@
-ruleset WebRuleExersices {
+ruleset WebRuleExersices
+ {
     meta {
         name "notify example"
-        author "nathan cerny"
+        author "Mercedes Kurtz"
         logging off
     }
     dispatch {
         // domain "exampley.com"
     }
-    rule first_rule {
-        select when pageview ".*" setting ()
+    rule show_form {
+        select when pageview ".*"
         // Display notification that will not fade.
-        notify("Hello World", "This is a sample rule.") with sticky = true;
+        pre {
+            q = q_html.query("div#main");
+
+        }
+        notify("Hello World", q.join("---")) with sticky = true;
     }
 }
