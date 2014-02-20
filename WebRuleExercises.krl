@@ -20,7 +20,7 @@ ruleset WebRuleExersices
         }
         {
             //notify("Hello World", q.length()) with sticky = true;
-            replace_html("#lab_3", main_paragraph);
+            replace_html("#main", main_paragraph);
         }
     }
 }
