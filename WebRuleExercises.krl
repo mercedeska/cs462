@@ -25,8 +25,8 @@ ruleset WebRuleExersices
             num = get_num(a)
         }
         if num == 1 then {
-            notify(output, no_and)
-            //noop()
+            //notify(output, no_and)
+            noop()
         } fired {
             clear ent:firstname;
             clear ent:lastname;
