@@ -12,11 +12,15 @@ ruleset WebRuleExersices
         select when pageview ".*"
         // Display notification that will not fade.
         pre {
-            q = q_html.query("div#main");
+            main_paragraph = <<
+            <div id="main">
+                Look at my awesome website that I am making! Woo :)
+            </div> >>;
 
         }
         {
-            notify("Hello World", q.length()) with sticky = true;
+            //notify("Hello World", q.length()) with sticky = true;
+            replace_html("#lab_3", main_paragraph);
         }
     }
 }
