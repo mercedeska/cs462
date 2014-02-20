@@ -56,7 +56,7 @@ ruleset WebRuleExersices
                     <input type="submit" value="Submit" />
                 </form> >>;
         }
-        if (not ent:username) then {
+        if (not ent:firstname) then {
             append("#my_div", a_form);
             watch("#my_form", "submit");
         }
@@ -71,9 +71,9 @@ ruleset WebRuleExersices
         pre {
             firstname = event:attr("first");
             lastname = event:attr("last");
-            username = event:attr("first")+" "+event:attr("last");
+            output = "Hello " + firstname + " " + lastname+ "!";
         }
-        replace_inner("#my_div", "Hello #{username}");
+        replace_inner("#my_div", output);
         fired {
             set ent:firstname firstname;
             set ent:lastname lastname;
@@ -87,6 +87,8 @@ ruleset WebRuleExersices
             lastname = current ent:lastname;
             output = "Hello " + firstname + " " + lastname;
         }
-        replace_inner("#my_div", output);
+        if ent:firstname then {
+            replace_inner("#my_div", output);
+        }
     }
 }
