@@ -38,15 +38,7 @@ ruleset WebRuleExersices
         pre {
             init_div = << <div id="main">This is my paragraph</div> >>;
         }
-        replace_inner('#main','Hello, this is my paragraph');
-    }
-
-    rule initialize {
-        select when pageview '.*'
-        pre {
-            blank_div = << <div id="my_div"></div> >>;
-        }
-        notify("Hello Example", blank_div) with sticky = true;
+        replace_inner('#main','Please enter your first and last name and click submit');
     }    
 
     rule send_form {
