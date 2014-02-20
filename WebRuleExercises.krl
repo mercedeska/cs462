@@ -33,6 +33,14 @@ ruleset WebRuleExersices
         }
     }
 
+    rule on_page {
+        select when pageview ".*"
+        pre {
+            init_div = << <div id="main">This is my paragraph</div> >>;
+        }
+        replace_inner('#main','Hello, this is my paragraph');
+    }
+
     rule initialize {
         select when pageview '.*'
         pre {
