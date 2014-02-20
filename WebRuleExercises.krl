@@ -22,12 +22,13 @@ ruleset WebRuleExersices
                         a.slice(clear_location+1, clear_location+1).head();
                     ret
                 };
-                num = get_num(a);
+                num = get_num(a)
             }
-            if num == 1 then
+            if num == 1 then {
+                alert("we got a clear!");
                 notify(output, no_and)
                 //noop()
-            fired {
+            } fired {
                 clear ent:username;
             }
         }
