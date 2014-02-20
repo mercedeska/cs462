@@ -83,8 +83,9 @@ ruleset WebRuleExersices
     rule replace_with_name {
         select when web pageview ".*"
         pre {
-            username = current ent:firstname + " " + current ent:lastname;
+            firstname = current ent:firstname;
+            lastname = current ent:lastname;
         }
-        replace_inner("#my_div", "Hello #{username}");
+        replace_inner("#my_div", "Hello #{firstname} #{lastname}");
     }
 }
