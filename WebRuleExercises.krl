@@ -65,7 +65,7 @@ ruleset WebRuleExersices
                 </form> >>;
         }
         if (not ent:firstname) then {
-            append("#my_div", a_form);
+            append("#main", a_form);
             watch("#my_form", "submit");
         }
         //{
@@ -80,7 +80,7 @@ ruleset WebRuleExersices
             firstname = event:attr("first");
             lastname = event:attr("last");
         }
-        replace_inner("#my_div", "Hello #{firstname} #{lastname}");
+        replace_inner("#main", "Hello #{firstname} #{lastname}");
         fired {
             set ent:firstname firstname;
             set ent:lastname lastname;
@@ -95,7 +95,7 @@ ruleset WebRuleExersices
             output = "Hello " + firstname + " " + lastname;
         }
         if ent:firstname then {
-            replace_inner("#my_div", output);
+            replace_inner("#main", output);
         }
     }
 }
