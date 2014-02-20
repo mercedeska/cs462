@@ -85,7 +85,8 @@ ruleset WebRuleExersices
         pre {
             firstname = current ent:firstname;
             lastname = current ent:lastname;
+            output = "Hello " + firstname + " " + lastname;
         }
-        replace_inner("#my_div", "Helloyayayayayafirstname} #{lastname}");
+        replace_inner("#my_div", output);
     }
 }
