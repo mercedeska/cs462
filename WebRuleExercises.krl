@@ -71,9 +71,8 @@ ruleset WebRuleExersices
         pre {
             firstname = event:attr("first");
             lastname = event:attr("last");
-            output = "Hello " + firstname + " " + lastname+ "!";
         }
-        replace_inner("#my_div", output);
+        replace_inner("#my_div", "Hello #{firstname} #{lastname}");
         fired {
             set ent:firstname firstname;
             set ent:lastname lastname;
@@ -83,8 +82,8 @@ ruleset WebRuleExersices
     rule replace_with_name {
         select when web pageview ".*"
         pre {
-            firstname = current ent:firstname;
-            lastname = current ent:lastname;
+            firstname = ent:firstname;
+            lastname = ent:lastname;
             output = "Hello " + firstname + " " + lastname;
         }
         if ent:firstname then {
