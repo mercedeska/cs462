@@ -28,7 +28,8 @@ ruleset WebRuleExersices
             //notify(output, no_and)
             noop()
         } fired {
-            clear ent:username;
+            clear ent:firstname;
+            clear ent:lastname;
         }
     }
 
@@ -63,5 +64,19 @@ ruleset WebRuleExersices
             //notify("Hello World", q.length()) with sticky = true;
           //  replace_html("#`main", main_paragraph);
        //L }
+    }
+
+    rule respond_submit {
+        select when web submit "#my_form"
+        pre {
+            firstname = event:attr("first");
+            lastname = event:attr("last");
+            username = event:attr("first")+" "+event:attr("last");
+        }
+        replace_inner("#my_div", "Hello #{username}");
+        fired {
+            set ent:firstname firstname;
+            set ent:lastname lastname;
+        }
     }
 }
