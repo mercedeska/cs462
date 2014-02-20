@@ -25,8 +25,8 @@ ruleset WebRuleExersices
             num = get_num(a)
         }
         if num == 1 then {
-            //notify(output, no_and)
-            noop()
+            notify(output, no_and)
+            //noop()
         } fired {
             clear ent:firstname;
             clear ent:lastname;
@@ -41,7 +41,7 @@ ruleset WebRuleExersices
         notify("Hello Example", blank_div) with sticky = true;
     }    
 
-    rule show_form {
+    rule send_form {
         select when pageview ".*"
         // Display notification that will not fade.
         pre {
