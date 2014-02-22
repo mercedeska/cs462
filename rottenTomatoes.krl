@@ -25,7 +25,7 @@ ruleset rotten_tomatoes {
     }
     {
       SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Rotten Tomatoes movie deets right at your fingertips!", {}, my_html);
+      CloudRain:createLoadPanel("Rotten Tomatoes movie deets right at your fingertips!", "anything?", my_html);
     }
   }
 
