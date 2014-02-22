@@ -16,25 +16,13 @@ ruleset rotten_tomatoes {
   }
   global {
   }
-  rule HelloWorld is active {
-    select when web cloudAppSelected
-    pre {
-      my_html = <<
-        <h5>Hello, world! And I love Christopher :) </h5>
-      >>;
-    }
-    {
-      SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Rotten Tomatoes movie deets right at your fingertips!", {}, my_html);
-    }
-  }
 
   rule on_page {
         select when pageview ".*"
         pre {
             init_div = << <div id="main">This is my paragraph</div> >>;
         }
-        replace_innner('body','Please enter your first and last name and click submit');
+        replace_inner('#main','Please enter your first and last name and click submit');
     }    
 
     rule send_form {
