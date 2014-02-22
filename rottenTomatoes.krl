@@ -16,74 +16,29 @@ ruleset rotten_tomatoes {
   }
   global {
   }
-  rule HelloWorld is active {
-    select when web cloudAppSelected
+  
+  rule watch_me {
+    select when pageview
     pre {
-      my_html = <<
-        <h5>Hello, world! And I love Christopher :) </h5>
+      myForm = <<
+        <form id="formFood">
+          <input type="text" name="myName">
+          <button type="submit">Save</submit>
+        </form>
       >>;
     }
     {
-      SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Rotten Tomatoes movie deets right at your fingertips!", {}, my_html);
+      append("body", myForm);
+      CloudRain:skyWatchSubmit("#formFood", meta:eci());
     }
   }
-
-  rule on_page {
-        select when pageview ".*"
-        pre {
-            init_div = << <div id="main">This is my paragraph</div> >>;
-        }
-        appent('body','Please enter your first and last name and click submit');
-    }    
-
-    rule send_form {
-        select when pageview ".*"
-        // Display notification that will not fade.
-        pre {
-            main_paragraph = <<
-                <div id="main">
-                    Look at my awesome website that I am making! Woo :)
-                </div> >>;
-            a_form = <<
-                <form id="my_form" onsubmit="return false">
-                    <input type="text" name="first"/>
-                    <input type="text" name="last"/>
-                    <input type="submit" value="Submit" />
-                </form> >>;
-        }
-        if (not ent:firstname) then {
-            append("#main", a_form);
-            watch("#my_form", "submit");
-        }
-        //{
-            //notify("Hello World", q.length()) with sticky = true;
-          //  replace_html("#`main", main_paragraph);
-       //L }
+  rule catch_submit {
+    select when web submit "#formFood"
+    pre {
+      myName = event:attr("myName");
     }
-
-    rule respond_submit {
-        select when web submit "#my_form"
-        pre {
-            firstname = event:attr("first");
-            lastname = event:attr("last");
-        }
-        replace_inner("#main", "Hello #{firstname} #{lastname}");
-        fired {
-            set ent:firstname firstname;
-            set ent:lastname lastname;
-        }
+    {
+      notify("My Name is ...", myName);
     }
-
-    rule replace_with_name {
-        select when web pageview ".*"
-        pre {
-            firstname = ent:firstname;
-            lastname = ent:lastname;
-            output = "Hello " + firstname + " " + lastname;
-        }
-        if ent:firstname then {
-            replace_inner("#main", output);
-        }
-    }
+  }
 }
