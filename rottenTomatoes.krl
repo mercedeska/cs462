@@ -19,7 +19,7 @@ ruleset rotten_tomatoes {
     select when web cloudAppSelected
     pre {
       my_html = <<
-        <h5>Hello, world!</h5>
+        <h5>Hello, world! And I love Christopher :) </h5>
       >>;
     }
     {
