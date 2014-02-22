@@ -20,7 +20,7 @@ ruleset rotten_tomatoes {
     select when web cloudAppSelected
     pre {
       my_html = <<
-        <h5>Hello, world! And I love Christopher :) </h5>
+        <h5>Hello, world! :) </h5>
       >>;
     }
     {
@@ -30,7 +30,7 @@ ruleset rotten_tomatoes {
   }
 
   rule on_page {
-        select when pageview cloudAppSelected
+        select when pageview
         pre {
             init_div = << <div id="main">This is my paragraph</div> >>;
         }
