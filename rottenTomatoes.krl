@@ -30,7 +30,7 @@ ruleset rotten_tomatoes {
   }
 
   rule on_page {
-        select when pageview ".*"
+        select when pageview cloudAppSelected
         pre {
             init_div = << <div id="main">This is my paragraph</div> >>;
         }
