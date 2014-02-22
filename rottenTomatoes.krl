@@ -16,7 +16,7 @@ ruleset rotten_tomatoes {
   }
   global {
   }
-  rule HelloWorld is active {
+  rule HelloWorld {
     select when web cloudAppSelected
     pre {
       my_html = <<
