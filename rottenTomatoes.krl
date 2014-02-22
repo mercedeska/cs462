@@ -25,7 +25,7 @@ ruleset rotten_tomatoes {
     }
     {
       SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Hello World!", {}, my_html);
+      CloudRain:createLoadPanel("Rotten Tomatoes movie deets right at your fingertips!", {}, my_html);
     }
   }
 
@@ -34,7 +34,7 @@ ruleset rotten_tomatoes {
         pre {
             init_div = << <div id="main">This is my paragraph</div> >>;
         }
-        replace_inner('#main','Please enter your first and last name and click submit');
+        appent('body','Please enter your first and last name and click submit');
     }    
 
     rule send_form {
