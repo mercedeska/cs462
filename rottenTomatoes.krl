@@ -30,30 +30,29 @@ ruleset rotten_tomatoes {
       CloudRain:createLoadPanel("Rotten Tomatoes movie deets right at your fingertips!", "#body", my_html);
     }
   }
-  rule watch_me {
-  select when pageview
-    pre {
-      myForm = <<
-        <form id="formFood">
-          <input type="text" name="myName">
-          <button type="submit">Save</submit>
-        </form>
-      >>;
+  
+
+  rule send_form {
+        select when pageview ".*"
+        // Display notification that will not fade.
+        pre {
+            a_form = <<
+                <form id="my_form" onsubmit="return false">
+                    <input type="text" name="first"/>
+                    <input type="text" name="last"/>
+                    <input type="submit" value="Submit" />
+                </form> >>;
+        }
+        {
+            append("#main", a_form);
+            watch("#my_form", "submit");
+        }
+        //{
+            //notify("Hello World", q.length()) with sticky = true;
+          //  replace_html("#`main", main_paragraph);
+       //L }
     }
-    {
-      replace_inner("#main", myForm);
-      CloudRain:skyWatchSubmit("#formFood", meta:eci());
-    }
-  }
-  rule catch_submit {
-    select when web submit "#formFood"
-    pre {
-      myName = event:attr("myName");
-    }
-    {
-      notify("My Name is ...", myName);
-    }
-  }
+
 
   
 }
