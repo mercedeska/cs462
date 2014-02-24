@@ -21,7 +21,9 @@ ruleset rotten_tomatoes {
     pre {
       my_html = <<
         <h5>Trying to add the form </h5>
-      >>;
+        <div id="main">
+          This code will all be replaced.
+        </div> >>;
     }
     {
       SquareTag:inject_styling();
@@ -39,7 +41,7 @@ ruleset rotten_tomatoes {
       >>;
     }
     {
-      append("#body", myForm);
+      replace_inner("#main", myForm);
       CloudRain:skyWatchSubmit("#formFood", meta:eci());
     }
   }
