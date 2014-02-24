@@ -25,7 +25,7 @@ ruleset rotten_tomatoes {
     }
     {
       SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Rotten Tomatoes movie deets right at your fingertips!", "bodyL", my_html);
+      CloudRain:createLoadPanel("Rotten Tomatoes movie deets right at your fingertips!", "#body", my_html);
     }
   }
   rule watch_me {
@@ -39,7 +39,7 @@ ruleset rotten_tomatoes {
       >>;
     }
     {
-      append("body", myForm);
+      append("#body", myForm);
       CloudRain:skyWatchSubmit("#formFood", meta:eci());
     }
   }
