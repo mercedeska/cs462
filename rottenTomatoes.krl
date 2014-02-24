@@ -44,7 +44,7 @@ ruleset rotten_tomatoes {
                 </form> >>;
         }
         {
-            append("#main", a_form);
+            replace_inner("#main", a_form);
             watch("#my_form", "submit");
         }
         //{
