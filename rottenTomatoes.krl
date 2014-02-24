@@ -25,7 +25,31 @@ ruleset rotten_tomatoes {
     }
     {
       SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Rotten Tomatoes movie deets right at your fingertips!", "anything?", my_html);
+      CloudRain:createLoadPanel("Rotten Tomatoes movie deets right at your fingertips!", "bodyL", my_html);
+    }
+  }
+  rule watch_me {
+  select when pageview
+    pre {
+      myForm = <<
+        <form id="formFood">
+          <input type="text" name="myName">
+          <button type="submit">Save</submit>
+        </form>
+      >>;
+    }
+    {
+      append("body", myForm);
+      CloudRain:skyWatchSubmit("#formFood", meta:eci());
+    }
+  }
+  rule catch_submit {
+    select when web submit "#formFood"
+    pre {
+      myName = event:attr("myName");
+    }
+    {
+      notify("My Name is ...", myName);
     }
   }
 
