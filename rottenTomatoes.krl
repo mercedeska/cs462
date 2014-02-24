@@ -33,7 +33,7 @@ ruleset rotten_tomatoes {
   
 
   rule send_form {
-        select when pageview ".*"
+     select when web cloudAppSelected
         // Display notification that will not fade.
         pre {
             a_form = <<
