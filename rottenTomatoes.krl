@@ -15,6 +15,12 @@ ruleset rotten_tomatoes {
   dispatch {
   }
   global {
+    get_movie_info = function(name) {
+      r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
+        {"apikey" : rotTomKey,
+        "q" : name});
+      r
+    }
   }
   rule HelloWorld {
     select when web cloudAppSelected
@@ -50,6 +56,15 @@ ruleset rotten_tomatoes {
             //notify("Hello World", q.length()) with sticky = true;
           //  replace_html("#`main", main_paragraph);
        //L }
+    }
+
+    rule respond_submit {
+        select when web submit "#my_form"
+        pre {
+            moviename = event:attr("movie");
+            data = get_movie_info(moviename);
+        }
+        replace_inner("#main", data);
     }
 
 
