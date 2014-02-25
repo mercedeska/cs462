@@ -26,7 +26,9 @@ ruleset rotten_tomatoes {
     select when web cloudAppSelected
     pre {
       my_html = <<
-        <h5>Type in the movie that you're looking for</h5>
+        <div id = "info">
+          Type in the movie that you're looking for
+        </div>
         <div id="main">
           This code will all be replaced.
         </div> >>;
@@ -66,7 +68,7 @@ ruleset rotten_tomatoes {
             output = "the output: " + data.pick("$total").join("---");
 
         }
-        append("#main", output);
+        replace_inner("#info", output);
     }
 
 
