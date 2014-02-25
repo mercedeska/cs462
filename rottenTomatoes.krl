@@ -17,7 +17,7 @@ ruleset rotten_tomatoes {
   global {
     get_movie_info = function(name) {
       r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
-        {"apikey" : rotTomKey,
+        {"apikey" : key:rotTomKey(),
         "q" : name});
       r
     }
@@ -61,7 +61,7 @@ ruleset rotten_tomatoes {
         pre {
             moviename = event:attr("movie");
             data = get_movie_info(moviename);
-            output = "the output: " + "key: " + rotTomKey + "---" + data{"content"} + "---" + Kdata{"status_line"};
+            output = "the output: " + "key: " + key:rotTomKey() + "---" + data{"content"} + "---" + Kdata{"status_line"};
 
         }
         replace_inner("#info", output);
