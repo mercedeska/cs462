@@ -54,10 +54,6 @@ ruleset rotten_tomatoes {
             replace_inner("#main", a_form);
             watch("#my_form", "submit");
         }
-        //{
-            //notify("Hello World", q.length()) with sticky = true;
-          //  replace_html("#`main", main_paragraph);
-       //L }
     }
 
     rule respond_submit {
@@ -65,7 +61,7 @@ ruleset rotten_tomatoes {
         pre {
             moviename = event:attr("movie");
             data = get_movie_info(moviename);
-            output = "the output: " + data.pick("$total").join("---");
+            output = "the output: " + data.pick("$total");
 
         }
         replace_inner("#info", output);
