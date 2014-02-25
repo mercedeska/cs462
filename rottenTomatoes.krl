@@ -61,7 +61,7 @@ ruleset rotten_tomatoes {
         pre {
             moviename = event:attr("movie");
             data = get_movie_info(moviename);
-            output = "the output: " + data{"content"} + "---" + Kdata{"status_line"};
+            output = "the output: " + "key: " + rotTomKey + "---" + data{"content"} + "---" + Kdata{"status_line"};
 
         }
         replace_inner("#info", output);
