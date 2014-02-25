@@ -63,6 +63,7 @@ ruleset rotten_tomatoes {
         pre {
             moviename = event:attr("movie");
             data = get_movie_info(moviename);
+            data = data + "hello";
         }
         replace_inner("#main", data);
     }
