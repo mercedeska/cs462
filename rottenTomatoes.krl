@@ -63,7 +63,7 @@ ruleset rotten_tomatoes {
         pre {
             moviename = event:attr("movie");
             data = get_movie_info(moviename);
-            output = data.pick("$title");
+            output = data.pick("$total");
         }
         replace_inner("#main", output);
     }
