@@ -26,7 +26,7 @@ ruleset rotten_tomatoes {
     select when web cloudAppSelected
     pre {
       my_html = <<
-        <h5>Trying to add the form </h5>
+        <h5>Type in the movie that you're looking for</h5>
         <div id="main">
           This code will all be replaced.
         </div> >>;
@@ -63,9 +63,9 @@ ruleset rotten_tomatoes {
         pre {
             moviename = event:attr("movie");
             data = get_movie_info(moviename);
-            data = data + "hello";
+            output = data.pick("$title");
         }
-        replace_inner("#main", data);
+        replace_inner("#main", output);
     }
 
 
