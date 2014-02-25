@@ -19,7 +19,8 @@ ruleset rotten_tomatoes {
       r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
         {"apikey" : "mepkty2uuzzqzzqc5ny5rj2x",
         "q" : name});
-      r
+      ret = "Title: " + r{content}.pick("$.movies.title");
+      ret
     }
   }
   rule HelloWorld {
@@ -61,10 +62,10 @@ ruleset rotten_tomatoes {
         pre {
             moviename = event:attr("movie");
             data = get_movie_info(moviename);
-            output = "the output: " + "key: " + key:rotTomKey() + "---" + data{"content"} + "---" + Kdata{"status_line"};
+            //output = "the output: " + "key: " + key:rotTomKey() + "---" + data{"content"} + "---" + Kdata{"status_line"};
 
         }
-        replace_inner("#info", output);
+        replace_inner("#info", data);
     }
 
 
