@@ -20,7 +20,7 @@ ruleset rotten_tomatoes {
         {"apikey" : "mepkty2uuzzqzzqc5ny5rj2x",
         "q" : name});
       content = r{"content"};
-      ret = content + "\nTitle: " + content.pick("$.total")
+      ret = content + "\nTitle: " + content.pick("$.total").length()
       ret
     }
   }
