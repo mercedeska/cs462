@@ -20,7 +20,9 @@ ruleset rotten_tomatoes {
         {"apikey" : "mepkty2uuzzqzzqc5ny5rj2x",
         "q" : name});    
       content = r.pick("$.content").decode();
-      ret = "movies: " + content.pick("$.movies").as('str');
+      movies = content.pick("$.movies");
+      movie = movies[0];
+      ret = "movies: " + movie.pick("$.release_dates").as('str');
       ret
     }
   }
