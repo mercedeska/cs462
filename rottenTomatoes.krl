@@ -18,9 +18,9 @@ ruleset rotten_tomatoes {
     get_movie_info = function(name) {
       r = http:get("http://api.rottentomatoes.com/api/public/v1.0/movies.json",
         {"apikey" : "mepkty2uuzzqzzqc5ny5rj2x",
-        "q" : name});
-      content = r{"content"};
-      ret = content + "\nTitle: " + content.pick("$.total").length()
+        "q" : name});    
+      content = r{"content"}.decode();
+      ret = content + "\nTitle: " + content.pick("$.total").length();
       ret
     }
   }
