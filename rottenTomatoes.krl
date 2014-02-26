@@ -22,7 +22,11 @@ ruleset rotten_tomatoes {
       content = r.pick("$.content").decode();
       movies = content.pick("$.movies");
       movie = movies[0];
-      ret = "movies: " + movie.pick("$.release_dates").as('str');
+      title = movie.pick("$.title").as('str');
+      ret = <<  <div id = "result">
+                  Search Results:
+                </div>
+                <h1>Title: #{title} </h1> >>;
       ret
     }
   }
