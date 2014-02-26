@@ -20,6 +20,7 @@ ruleset rotten_tomatoes {
         {"apikey" : "mepkty2uuzzqzzqc5ny5rj2x",
         "q" : name});    
       content = r.pick("$.content").decode();
+      total = content.pick("$.movies");
       movies = content.pick("$.movies");
       movie = movies[0];
       title = movie.pick("$.title").as('str');
@@ -34,7 +35,8 @@ ruleset rotten_tomatoes {
                 <div id="yr">Year: #{rel_year}</div>
                 <div id="rating">Rating: #{rating}</div>
                 <div id="crit_Rate">Critics Rating: #{critic_rat}</div> 
-                <div id="aud_rat">Audience Rating: #{aud_rat}</div> >>;
+                <div id="aud_rat">Audience Rating: #{aud_rat}</div>
+                <div id="tot">Total: #{total}</div>  >>;
       ret
     }
   }
