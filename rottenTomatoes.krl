@@ -23,10 +23,10 @@ ruleset rotten_tomatoes {
       movies = content.pick("$.movies");
       movie = movies[0];
       title = movie.pick("$.title").as('str');
-      ret = <<  <div id = "result">
-                  Search Results:
-                </div>
-                <h1>Title: #{title} </h1> >>;
+      synopsis = movie.pick("$.synopsis").as('str');
+      ret = <<  <div id = "result">Search Results:</div>
+                <h1> #{title} </h1>
+                <div id="synop">Synopsis: #{synopsis}</div> >>;
       ret
     }
   }
