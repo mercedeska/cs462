@@ -20,7 +20,7 @@ ruleset rotten_tomatoes {
         {"apikey" : "mepkty2uuzzqzzqc5ny5rj2x",
         "q" : name});    
       content = r.pick("$.content").decode();
-      total = content.pick("$.movies");
+      total = content.pick("$.movies").as('str');
       movies = content.pick("$.movies");
       movie = movies[0];
       title = movie.pick("$.title").as('str');
