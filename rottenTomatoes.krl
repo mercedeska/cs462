@@ -31,7 +31,7 @@ ruleset rotten_tomatoes {
       ret = <<  <div id = "result">Search Results:</div>
                 <h1> #{title} </h1>
                 <div id="synop">Synopsis: #{synopsis}</div>
-                <div id="yr">Year: #{year}</div>
+                <div id="yr">Year: #{rel_year}</div>
                 <div id="rating">Rating: #{rating}</div>
                 <div id="crit_Rate">Critics Rating: #{critic_rat}</div> 
                 <div id="aud_rat">Audience Rating: #{aud_rat}</div> >>;
