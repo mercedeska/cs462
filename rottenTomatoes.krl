@@ -24,9 +24,17 @@ ruleset rotten_tomatoes {
       movie = movies[0];
       title = movie.pick("$.title").as('str');
       synopsis = movie.pick("$.synopsis").as('str');
+      rel_year = movie.pick("$.year").as('str');
+      rating = movie.pick("$.mpaa_rating").as('str');
+      critic_rat = movie.pick("$.ratings.critics_rating").as('str');
+      aud_rat = movie.pick("$.ratings.audience_rating").as('str');
       ret = <<  <div id = "result">Search Results:</div>
                 <h1> #{title} </h1>
-                <div id="synop">Synopsis: #{synopsis}</div> >>;
+                <div id="synop">Synopsis: #{synopsis}</div>
+                <div id="yr">Year: #{year}</div>
+                <div id="rating">Rating: #{rating}</div>
+                <div id="crit_Rate">Critics Rating: #{critic_rat}</div> 
+                <div id="aud_rat">Audience Rating: #{aud_rat}</div> >>;
       ret
     }
   }
