@@ -44,6 +44,12 @@ ruleset rotten_tomatoes {
                       <tr>
                         <th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;font-size: 110%; font-style:italic;">#{title}</th>
                       </tr>
+                      <tr>
+                        <td colspan="2" style="text-align:center;">
+                          <img alt=#{title} src=#{img_src} width="220" height="326">
+                        </td>
+                      <tr>
+                      
                     </tbody>
                   </table> >>;
 
