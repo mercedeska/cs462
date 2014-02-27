@@ -68,10 +68,10 @@ ruleset rotten_tomatoes {
                     </tbody>
                   </table>
                   <div id="synop">Synopsis: #{synopsis}</div>
-                  <div id="search_again">Type in a movie to search></div> >>;
+                  <div id="search_again">Type in a movie to search:</div> >>;
 
       ret_none = << <div id="result">No such movie</div>
-                    <div id="search_again">Type in a movie to search></div> >>;
+                    <div id="search_again">Type in a movie to search:</div> >>;
 
       (total > 0) => ret | ret_none
     }
