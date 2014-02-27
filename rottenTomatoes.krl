@@ -29,14 +29,15 @@ ruleset rotten_tomatoes {
       rating = movie.pick("$.mpaa_rating").as('str');
       critic_rat = movie.pick("$.ratings.critics_rating").as('str');
       aud_rat = movie.pick("$.ratings.audience_rating").as('str');
+      img_src = movie.pick("$.posters.thumbnail");
       ret = <<  <div id = "result">Search Results:</div>
                 <h1> #{title} </h1>
+                <img src = #{img_src} alt = #{title}>
                 <div id="synop">Synopsis: #{synopsis}</div>
                 <div id="yr">Year: #{rel_year}</div>
                 <div id="rating">Rating: #{rating}</div>
                 <div id="crit_Rate">Critics Rating: #{critic_rat}</div> 
-                <div id="aud_rat">Audience Rating: #{aud_rat}</div>
-                <div id="tot">Total: #{total}</div>  >>;
+                <div id="aud_rat">Audience Rating: #{aud_rat}</div> >>;
 
       ret_none = << <div id="result">No such movie</div> >>;
 
