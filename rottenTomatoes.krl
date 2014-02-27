@@ -45,7 +45,7 @@ ruleset rotten_tomatoes {
                         <th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;font-size: 110%; font-style:italic;">#{title}</th>
                       </tr>
                     </tbody>
-                  </table>
+                  </table> >>;
 
       ret_none = << <div id="result">No such movie</div> >>;
 
