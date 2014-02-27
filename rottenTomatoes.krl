@@ -49,7 +49,22 @@ ruleset rotten_tomatoes {
                           <img alt=#{title} src=#{img_src} width="220" height="326">
                         </td>
                       <tr>
-                      
+                      <tr>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Year</th>
+                        <td>#{year}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Rating</th>
+                        <td>#{rating}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Critic Rating</th>
+                        <td>#{critic_rat}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Audience Rating</th>
+                        <td>#{aud_rat}</td>
+                      </tr>
                     </tbody>
                   </table> >>;
 
