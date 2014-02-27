@@ -46,12 +46,12 @@ ruleset rotten_tomatoes {
                       </tr>
                       <tr>
                         <td colspan="2" style="text-align:center;">
-                          <img alt=#{title} src=#{img_src} width="220" height="326">
+                          <img alt=#{title} src=#{img_src} width="120" height="179">
                         </td>
                       <tr>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Year</th>
-                        <td>#{year}</td>
+                        <td>#{rel_year}</td>
                       </tr>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Rating</th>
