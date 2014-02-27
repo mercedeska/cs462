@@ -66,7 +66,8 @@ ruleset rotten_tomatoes {
                         <td>#{aud_rat}</td>
                       </tr>
                     </tbody>
-                  </table> >>;
+                  </table>
+                  <div id="synop">Synopsis: #{synopsis}</div> >>;
 
       ret_none = << <div id="result">No such movie</div> >>;
 
