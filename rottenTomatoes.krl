@@ -37,7 +37,10 @@ ruleset rotten_tomatoes {
                 <div id="crit_Rate">Critics Rating: #{critic_rat}</div> 
                 <div id="aud_rat">Audience Rating: #{aud_rat}</div>
                 <div id="tot">Total: #{total}</div>  >>;
-      ret
+
+      ret_none = << <div id="result">No such movie</div> >>;
+
+      (total > 0) => ret | ret_none
     }
   }
   rule HelloWorld {
