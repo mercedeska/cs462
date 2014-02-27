@@ -30,7 +30,7 @@ ruleset rotten_tomatoes {
       critic_rat = movie.pick("$.ratings.critics_rating").as('str');
       aud_rat = movie.pick("$.ratings.audience_rating").as('str');
       img_src = movie.pick("$.posters.thumbnail");
-      ret = <<  <div id = "result">Search Results:</div>
+      ret_old = <<  <div id = "result">Search Results:</div>
                 <h1> #{title} </h1>
                 <img src = #{img_src} alt = #{title}>
                 <div id="synop">Synopsis: #{synopsis}</div>
@@ -38,6 +38,14 @@ ruleset rotten_tomatoes {
                 <div id="rating">Rating: #{rating}</div>
                 <div id="crit_Rate">Critics Rating: #{critic_rat}</div> 
                 <div id="aud_rat">Audience Rating: #{aud_rat}</div> >>;
+      ret = <<  <div id="result">Search Results:</div>
+                  <table style="border-spaceing:3px;width=22em;font-size:90%;;">
+                    <tbody>
+                      <tr>
+                        <th colspan="2" style="text-align:center;font-size:125%;font-weight:bold;font-size: 110%; font-style:italic;">#{title}</th>
+                      </tr>
+                    </tbody>
+                  </table>
 
       ret_none = << <div id="result">No such movie</div> >>;
 
