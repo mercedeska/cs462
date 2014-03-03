@@ -19,14 +19,24 @@ ruleset FourSquare_checkin {
     select when web cloudAppSelected
     pre {
       my_html = <<
-        <h5>Hello, world!</h5
-        <div id=token> The access token: #{accessToken} </div>
+        <h5>Hello, world!</h5>
+        <div id="token"> The access token: #{accessToken} </div>
+        <div id="repl"> lalalala get rid of</div>
       >>;
     }
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Foursquare Checkins for Mercedes", {}, my_html);
     }
+  }
+
+  rule process_fs_checkin {
+    select when foursquare checkin
+    pre {
+      print = "see if this prints!";
+      update_html = << #{print} ta da!>>;
+    }
+    replace_inner("#repl",update_html);
   }
 }
 
