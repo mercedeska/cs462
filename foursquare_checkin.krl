@@ -34,7 +34,7 @@ ruleset FourSquare_checkin {
     pre {
       ven  = "the venue";
       json_file = event:attr("checkin");
-      content = json_file.pick("$.content").decode();
+      content = json_file.decode();
       sh = content.pick("$.shout").as('str');
     }
     noop()
