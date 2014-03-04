@@ -33,11 +33,24 @@ ruleset FourSquare_checkin {
   rule process_fs_checkin {
     select when foursquare checkin
     pre {
-      print = "see if this prints!";
-      update_html = << #{print} ta da!>>;
+      // ent:venue  = "the venue";
+      json_file = event:attr("checkin");
     }
-    replace_inner("#repl",update_html);
+    noop();
+    always {
+      set ent:venue "the venue";
+      set ent:json_fl json_file
+    }
   }
+
+  rule display_checkin {
+    select when cloudAppSelected
+    pre {
+      input_html = << "#{ent:venue} now is here with this: #{json_fl}" >>
+    }
+    replace_inner("#repl", input_html);
+  }
+
 }
 
 
