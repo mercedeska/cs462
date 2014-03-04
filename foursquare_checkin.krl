@@ -33,12 +33,12 @@ ruleset FourSquare_checkin {
   rule process_fs_checkin {
     select when foursquare checkin
     pre {
-      // ent:venue  = "the venue";
+      ven  = "the venue";
       json_file = event:attr("checkin");
     }
     noop();
     always {
-      set ent:venue "the venue";
+      set ent:venue ven;
       set ent:json_fl json_file
     }
   }
