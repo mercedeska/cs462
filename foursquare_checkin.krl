@@ -34,18 +34,21 @@ ruleset FourSquare_checkin {
     pre {
       ven  = "the venue";
       json_file = event:attr("checkin");
+      content = json_file.pick("$.content").decode();
+      sh = content.pick("$.shout").as('str');
     }
     noop()
     always {
       set ent:venue ven;
-      set ent:json_fl json_file
+      set ent:json_fl json_file;
+      set ent:shout sh
     }
   }
 
   rule display_checkin {
     select when cloudAppSelected
     pre {
-      input_html = << #{ent:venue} now is here with this: #{ent:json_fl} >>
+      input_html = << #{ent:shout} now is here with this: #{ent:json_fl} >>
     }
     replace_inner("#repl", input_html);
   }
