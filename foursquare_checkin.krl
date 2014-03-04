@@ -19,8 +19,7 @@ ruleset FourSquare_checkin {
     select when web cloudAppSelected
     pre {
       my_html = <<
-        <h5>Hello, world!</h5>
-        <div id="token"> The access token: #{accessToken} </div>
+        <h5>Last Checkin:</h5>
         <div id="repl"> lalalala get rid of</div>
       >>;
     }
