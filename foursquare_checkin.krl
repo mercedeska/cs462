@@ -33,7 +33,7 @@ ruleset FourSquare_checkin {
     select when foursquare checkin
     pre {
       ven  = "the venue";
-      json_file = event:attr(checkin).as('str');
+      json_file = event:attr("checkin");
     }
     noop()
     always {
