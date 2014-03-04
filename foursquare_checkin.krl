@@ -1,6 +1,6 @@
 ruleset FourSquare_checkin {
   meta {
-    name "FourSquare Checkin"
+    name "FourSquare Checkins"
     description <<
       This ruleset waits for a push from Foursquare. When it receives it,
       the user's checkin information is displayed
@@ -33,7 +33,7 @@ ruleset FourSquare_checkin {
     select when foursquare checkin
     pre {
       ven  = "the venue";
-      json_file = event:attr(checkin);
+      json_file = event:attr(checkin).as('str');
     }
     noop()
     always {
@@ -52,6 +52,7 @@ ruleset FourSquare_checkin {
 
 }
 
+//https://cs.kobj.net/sky/event/8D87DEF2-A30E-11E3-8588-DF7CD61CF0AC/33/foursquare/checkin?_rids=b505217x4
 
 // Lab details from Ryan - 
 // you'll have to manually allow your progam to have access to your person
