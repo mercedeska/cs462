@@ -33,7 +33,7 @@ ruleset FourSquare_checkin {
     select when foursquare checkin
     pre {
       ven  = "the venue";
-      json_file = event:attr("checkin");
+      json_file = event:attr(checkin);
     }
     noop()
     always {
@@ -45,7 +45,7 @@ ruleset FourSquare_checkin {
   rule display_checkin {
     select when cloudAppSelected
     pre {
-      input_html = << #{ent:venue} now is here with this: #{json_fl} >>
+      input_html = << #{ent:venue} now is here with this: #{ent:json_fl} >>
     }
     replace_inner("#repl", input_html);
   }
