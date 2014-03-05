@@ -53,7 +53,7 @@ ruleset FourSquare_checkin {
   rule display_checkin {
     select when cloudAppSelected
     pre {
-      out_time = time:new(ent:createdAt.as('str'));
+      out_time = time:now();
 
       //out_time = time:strftime(ent:createdAt, "%c");
       input_html = << <div id="result">Venue Checkin:</div>
