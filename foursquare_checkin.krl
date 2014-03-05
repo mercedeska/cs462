@@ -53,11 +53,12 @@ ruleset FourSquare_checkin {
   rule display_checkin {
     select when cloudAppSelected
     pre {
+      out_time = time:strftime(ent:createdAt, "%c");
       input_html = << <div id="result">Venue Checkin:</div>
                   <table style="border-spaceing:3px;width=22em;font-size:90%;;">
                     <tbody>
                       <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">Venue Name</th>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Name</th>
                         <td>#{ent:name}</td>
                       </tr>
                       <tr>
@@ -66,7 +67,7 @@ ruleset FourSquare_checkin {
                       </tr>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Created At</th>
-                        <td>#{ent:createdAt}</td>
+                        <td>#{out_time}</td>
                       </tr>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Shout</th>
