@@ -59,7 +59,7 @@ ruleset FourSquare_checkin {
         diff = time:add(curr_time, {"seconds": neg_at});
         neg_diff = time:strftime(diff, "%s") * -1;
         ret = time:add(neg_diff, {"seconds": neg_diff});
-        neg_at
+        diff
       };
       out_time = check_time(ent:createdAt);
 
