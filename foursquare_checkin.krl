@@ -61,7 +61,7 @@ ruleset FourSquare_checkin {
         ret = time:add(neg_diff, {"seconds": neg_diff});
         ret
       };
-      out_time = time:now();
+      out_time = check_time(ent:createdAt);
 
       input_html = << 
                   <div id="result">Venue Checkin:</div>
