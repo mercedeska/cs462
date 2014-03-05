@@ -25,7 +25,7 @@ ruleset FourSquare_checkin {
     }
     {
       SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Foursquare Checkins for Mercedes", {}, my_html);
+      CloudRain:createLoadPanel("Foursquare Checkin", {}, my_html);
     }
   }
 
