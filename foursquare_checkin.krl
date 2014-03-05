@@ -32,23 +32,48 @@ ruleset FourSquare_checkin {
   rule process_fs_checkin {
     select when foursquare checkin
     pre {
-      ven  = "the venue";
       json_file = event:attr("checkin");
       content = json_file.decode();
+      ven = content.pick("$.venue");
+      nm = ven.pick("$.name").as('str');
+      cty = ven.pick("$.location.city").as('str');
       sh = content.pick("$.shout").as('str');
+      created = content.pick("$.createdAt");
     }
     noop()
     always {
-      set ent:venue ven;
       set ent:json_fl json_file;
-      set ent:shout sh
+      set ent:name nm;
+      set ent:city cty;
+      set ent:shout sh;
+      set ent:createdAt created
     }
   }
 
   rule display_checkin {
     select when cloudAppSelected
     pre {
-      input_html = << #{ent:shout} now is here with this: #{ent:json_fl} >>
+      input_html = << <div id="result">Venue Checkin:</div>
+                  <table style="border-spaceing:3px;width=22em;font-size:90%;;">
+                    <tbody>
+                      <tr>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Venue Name</th>
+                        <td>#{ent:name}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">City</th>
+                        <td>#{ent:city}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Created At</th>
+                        <td>#{ent:createdAt}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Shout</th>
+                        <td>#{ent:shout}</td>
+                      </tr>
+                    </tbody>
+                  </table> >>;
     }
     replace_inner("#repl", input_html);
   }
