@@ -62,6 +62,7 @@ ruleset FourSquare_checkin {
         ret
       };
       out_time = check_time(ent:createdAt);
+      print_time = time:strfftime(out_time, "%c");
 
       input_html = << 
                   <div id="result">Venue Checkin:</div>
@@ -77,7 +78,7 @@ ruleset FourSquare_checkin {
                       </tr>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Created At</th>
-                        <td>#{out_time}</td>
+                        <td>#{print_time}</td>
                       </tr>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Shout</th>
