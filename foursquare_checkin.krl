@@ -53,11 +53,17 @@ ruleset FourSquare_checkin {
   rule display_checkin {
     select when cloudAppSelected
     pre {
+      check_time = function(time) {
+        curr_time = time:now();
+        neg_at = -1 * ent:createdAt;
+        diff = time:add(curr_time, {"seconds": neg_at});
+        neg_diff = time:strftime(diff, "%s") * -1;
+        ret = time:add(neg_diff, {"seconds": neg_diff});
+        ret
+      };
       out_time = time:now();
 
-      //out_time = time:strftime(ent:createdAt, "%c");
       input_html = << 
-                  <script>var d = new Date(#{ent:createdAt} * 1000)</script>
                   <div id="result">Venue Checkin:</div>
                   <table style="border-spaceing:3px;width=22em;font-size:90%;;">
                     <tbody>
@@ -71,7 +77,6 @@ ruleset FourSquare_checkin {
                       </tr>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Created At</th>
-                        <td><script>d.toString()</script></td>
                         <td>#{out_time}</td>
                       </tr>
                       <tr>
