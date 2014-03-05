@@ -65,7 +65,6 @@ ruleset FourSquare_checkin {
       print_time = time:strftime(out_time, "%c");
 
       input_html = << 
-                  <div id="result">Venue Checkin:</div>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
