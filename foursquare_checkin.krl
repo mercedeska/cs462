@@ -56,7 +56,9 @@ ruleset FourSquare_checkin {
       out_time = time:now();
 
       //out_time = time:strftime(ent:createdAt, "%c");
-      input_html = << <div id="result">Venue Checkin:</div>
+      input_html = << 
+                  <script>var d = new Date(ent:createdAt * 1000)</script>
+                  <div id="result">Venue Checkin:</div>
                   <table style="border-spaceing:3px;width=22em;font-size:90%;;">
                     <tbody>
                       <tr>
@@ -69,6 +71,7 @@ ruleset FourSquare_checkin {
                       </tr>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Created At</th>
+                        <td><script>d.toString()</script></td>
                         <td>#{out_time}</td>
                       </tr>
                       <tr>
