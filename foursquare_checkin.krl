@@ -62,11 +62,11 @@ ruleset FourSquare_checkin {
         ret
       };
       out_time = check_time(ent:createdAt);
-      print_time = time:strfftime(out_time, "%c");
+      print_time = time:strftime(out_time, "%c");
 
       input_html = << 
                   <div id="result">Venue Checkin:</div>
-                  <table style="border-spaceing:3px;width=25em;font-size:90%;;">
+                  <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Name</th>
