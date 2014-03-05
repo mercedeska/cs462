@@ -66,7 +66,7 @@ ruleset FourSquare_checkin {
 
       input_html = << 
                   <div id="result">Venue Checkin:</div>
-                  <table style="border-spaceing:3px;width=22em;font-size:90%;;">
+                  <table style="border-spaceing:3px;width=25em;font-size:90%;;">
                     <tbody>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Name</th>
