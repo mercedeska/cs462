@@ -2,7 +2,7 @@ ruleset location_data {
   meta {
     name "Location Data"
     description <<
-      Hello World
+      Stores keys and values for the locations of foursquare checkins
     >>
     author "Mercedes Kurtz"
     logging off
@@ -23,6 +23,20 @@ ruleset location_data {
     {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Hello World!", {}, my_html);
+    }
+  }
+
+  rule add_location_item {
+    select when pds new_location_data
+    pre {
+      the_map = ent:my_map;
+      key = event:attr('key');
+      value = event:attr('value');
+      ret_map = the_map.put(key,value);
+    }
+    noop()
+    always {
+      set ent:my_map ret_map
     }
   }
 }
