@@ -18,7 +18,7 @@ ruleset location_data {
       the_map = ent:my_map;
       key = "$." + k.as('str');
       val = the_map.pick(key);
-      the_map
+      ent:curr_val
     }
   }
   rule HelloWorld is active {
