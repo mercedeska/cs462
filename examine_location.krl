@@ -32,10 +32,11 @@ ruleset examine_location {
   rule show_fs_location {
     select when web cloudAppSelected
     pre {
-      name = location_data:get_location_data('fs_checkin').as('str');
-      city = "FILL IN";
-      time = "FILL IN";
-      shout = "FILL IN";
+      deets = location_data:get_location_data('fs_checkin').as('str');
+      name = deets.pick("$.venue");
+      city = deets.pick("$.city");
+      time = deets.pick("$.created");
+      shout = deets.pick("$.shout");
       input_html = << 
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
