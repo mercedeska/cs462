@@ -15,11 +15,10 @@ ruleset location_data {
   }
   global {
     get_location_data = function(k) {
-      //the_map = ent:my_map;
-      //key = "$." + key.as('str');
-      //val = the_map.pick(key);
-      ret = "GOT TO METHOD!!"
-      ret
+      the_map = ent:my_map;
+      key = "$." + key.as('str');
+      val = the_map.pick(key);
+      val
     }
   }
   rule HelloWorld is active {
