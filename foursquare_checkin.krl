@@ -42,7 +42,7 @@ ruleset FourSquare_checkin {
       k = 'fs_checkin';
       v = {'venue' : nm, 'city' : cty, 'shout' : sh, 'created' : created};
     }
-    send_directive(nm) with checkin = nm;
+    send_directive(nm) with key = 'checkin' and value = nm;
     always {
       set ent:json_fl json_file;
       set ent:name nm;

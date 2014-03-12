@@ -46,7 +46,7 @@ ruleset location_data {
       v = event:attr("value");
       ret_map = the_map.put([k],v);
     }
-    noop()
+    send_directive(k) with key = "location" and value = v;
     always {
       set ent:my_map ret_map;
       set ent:curr_key k;
