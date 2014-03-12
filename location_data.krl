@@ -44,13 +44,13 @@ ruleset location_data {
       the_map = ent:my_map;
       k = event:attr("key");
       v = event:attr("value");
-      ret_map = the_map.put([k.as('str')],v);
+      ret_map = the_map.put([k],v);
     }
     noop()
     always {
       set ent:my_map ret_map;
-      set ent:curr_key key;
-      set ent:curr_val value;
+      set ent:curr_key k;
+      set ent:curr_val v;
       set ent:in_here "in here!!"
     }
   }
