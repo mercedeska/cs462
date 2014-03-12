@@ -26,9 +26,10 @@ ruleset location_data {
     pre {
       k = ent:curr_key;
       v = ent:curr_val.encode();
+      ih = ent:in_here;
       my_html = <<
         <h5>For Checkin</h5>
-        <div id="check"> key: #{k} value: #{v} </div> 
+        <div id="check"> key: #{k} value: #{v}  in here: #{ih}</div> 
       >>;
     }
     {
@@ -41,15 +42,16 @@ ruleset location_data {
     select when pds new_location_data
     pre {
       the_map = ent:my_map;
-      key = event:attr('key');
-      value = event:attr('value');
+      key = event:attr("key");
+      value = event:attr("value");
       ret_map = the_map.put(key,value);
     }
     noop()
     always {
       set ent:my_map ret_map;
       set ent:curr_key key;
-      set ent:curr_val value
+      set ent:curr_val value;
+      set ent:in_here "in here!!"
     }
   }
 }

@@ -50,9 +50,7 @@ ruleset FourSquare_checkin {
       set ent:city cty;
       set ent:shout sh;
       set ent:createdAt created;
-      raise pds event 'new_location_data'
-        with key = k
-          and value = v
+      raise pds event 'new_location_data' with key = k and value = v;
     }
   }
 
