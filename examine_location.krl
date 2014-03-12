@@ -32,7 +32,7 @@ ruleset examine_location {
   rule show_fs_location {
     select when web cloudAppSelected
     pre {
-      name = location_data:get_location_data('fs_checkin').as('str');
+      name = location_data:get_location_data('fs_checkin').encode();
       city = "FILL IN";
       time = "FILL IN";
       shout = "FILL IN";
