@@ -44,7 +44,7 @@ ruleset location_data {
       the_map = ent:my_map;
       key = event:attr("key");
       value = event:attr("value");
-      ret_map = the_map.put(key,value);
+      ret_map = the_map.put([key],value);
     }
     noop()
     always {
