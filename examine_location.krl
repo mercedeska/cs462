@@ -10,7 +10,7 @@ ruleset examine_location {
     logging off
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
-    use module b505217x6
+    use module b505217x6 alias location_data
   }
   dispatch {
   }
@@ -32,7 +32,7 @@ ruleset examine_location {
   rule show_fs_location {
     select when web cloudAppSelected
     pre {
-      name = get_location_data('fs_checkin');
+      name = location_data:get_location_data('fs_checkin');
       city = "FILL IN";
       time = "FILL IN";
       shout = "FILL IN";
