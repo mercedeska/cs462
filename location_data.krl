@@ -26,7 +26,7 @@ ruleset location_data {
     pre {
       k = ent:curr_key;
       v = ent:curr_val;
-      m = ent:my_map;
+      m = ent:my_map.encode();
       my_html = <<
         <h5>For Checkin</h5>
         <div id="check"> key: #{k} value: #{v}  map: #{m}</div> 
