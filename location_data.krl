@@ -44,7 +44,8 @@ ruleset location_data {
       the_map = ent:my_map;
       k = event:attr("key");
       v = event:attr("value");
-      ret_map = the_map.put([k],v);
+      cng_map = the_map.put([k],v);
+      ret_map = cng_map.put(['foo'], {"flop": 12})
     }
     noop()
     always {
