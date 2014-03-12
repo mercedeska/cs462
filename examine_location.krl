@@ -39,7 +39,6 @@ ruleset examine_location {
       time = deets.pick("$.created").as('str');
       shout = deets.pick("$.shout").as("str");
       input_html = << 
-                  <h3>deets: #{deets} and #{valueType} </h3>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
