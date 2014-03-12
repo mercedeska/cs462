@@ -38,6 +38,7 @@ ruleset examine_location {
       time = deets.pick("$.created");
       shout = deets.pick("$.shout");
       input_html = << 
+                  <h3>deets: #{deets}</h3>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
