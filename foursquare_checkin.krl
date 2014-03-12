@@ -40,8 +40,7 @@ ruleset FourSquare_checkin {
       sh = content.pick("$.shout").as('str');
       created = content.pick("$.createdAt");
       k = 'fs_checkin';
-      v_str = "{'venue' : " + nm + ", 'city' : " + cty + ", 'shout' : " + sh + ", 'created' : " + created + "}";
-      v = v_str.decode();
+      v = {'venue' : nm, 'city' : cty, 'shout' : sh, 'created' : created};
     }
     noop()
     always {
