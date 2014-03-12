@@ -25,7 +25,7 @@ ruleset location_data {
     select when web cloudAppSelected
     pre {
       k = ent:curr_key;
-      v = ent:curr_val.encode();
+      v = ent:curr_val;
       ih = ent:in_here;
       my_html = <<
         <h5>For Checkin</h5>
