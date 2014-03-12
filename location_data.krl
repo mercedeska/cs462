@@ -28,7 +28,7 @@ ruleset location_data {
       v = ent:curr_val.encode();
       my_html = <<
         <h5>For Checkin</h5>
-        <div id="check"> key: $(k) value: $(v) </div> 
+        <div id="check"> key: #{k} value: #{v} </div> 
       >>;
     }
     {
