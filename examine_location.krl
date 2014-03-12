@@ -42,19 +42,19 @@ ruleset examine_location {
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">Name</th>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Name:</th>
                         <td>#{name}</td>
                       </tr>
                       <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">City</th>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">City:</th>
                         <td>#{city}</td>
                       </tr>
                       <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">Created At</th>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Created At:</th>
                         <td>#{time}</td>
                       </tr>
                       <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">Shout</th>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Shout:</th>
                         <td>#{shout}</td>
                       </tr>
                     </tbody>
