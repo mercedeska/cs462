@@ -18,7 +18,7 @@ ruleset location_data {
       the_map = ent:my_map;
       key = "$." + k.as('str');
       val = the_map.pick(key);
-      val
+      the_map
     }
   }
   rule HelloWorld is active {
@@ -42,9 +42,9 @@ ruleset location_data {
     select when pds new_location_data
     pre {
       the_map = ent:my_map;
-      key = event:attr("key");
-      value = event:attr("value");
-      ret_map = the_map.put([key],value);
+      k = event:attr("key");
+      v = event:attr("value");
+      ret_map = the_map.put([k.as('str')],v);
     }
     noop()
     always {
