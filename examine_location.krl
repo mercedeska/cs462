@@ -33,10 +33,10 @@ ruleset examine_location {
     select when web cloudAppSelected
     pre {
       deets = location_data:get_location_data('fs_checkin').as('str');
-      name = deets.pick("$.venue");
-      city = deets.pick("$.city");
-      time = deets.pick("$.created");
-      shout = deets.pick("$.shout");
+      name = deets.pick("$.venue").as('str');
+      city = deets.pick("$.city").as("str");
+      time = deets.pick("$.created").as('str');
+      shout = deets.pick("$.shout").as("str");
       input_html = << 
                   <h3>deets: #{deets}</h3>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
