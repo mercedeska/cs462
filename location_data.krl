@@ -26,10 +26,10 @@ ruleset location_data {
     pre {
       k = ent:curr_key;
       v = ent:curr_val;
-      ih = ent:in_here;
+      m = ent:my_map;
       my_html = <<
         <h5>For Checkin</h5>
-        <div id="check"> key: #{k} value: #{v}  in here: #{ih}</div> 
+        <div id="check"> key: #{k} value: #{v}  map: #{m}</div> 
       >>;
     }
     {
