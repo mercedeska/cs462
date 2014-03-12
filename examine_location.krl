@@ -25,14 +25,14 @@ ruleset examine_location {
     }
     {
       SquareTag:inject_styling();
-      CloudRain:createLoadPanel("Hello World!", {}, my_html);
+      CloudRain:createLoadPanel("Last Foursquare checkin", {}, my_html);
     }
   }
 
   rule show_fs_location {
     select when web cloudAppSelected
     pre {
-      name = "FILL IN";
+      name = get_location_data('fs_checkin');
       city = "FILL IN";
       time = "FILL IN";
       shout = "FILL IN";
