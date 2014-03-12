@@ -39,6 +39,9 @@ ruleset FourSquare_checkin {
       cty = ven.pick("$.location.city").as('str');
       sh = content.pick("$.shout").as('str');
       created = content.pick("$.createdAt");
+      k = 'fs_checkin';
+      v_str = "{'venue' : " + venue + ", 'city' : " + cty + ", 'shout' : " + sh + ", 'created' : " + created + "}";
+      v = v_str.decode();
     }
     noop()
     always {
@@ -46,7 +49,10 @@ ruleset FourSquare_checkin {
       set ent:name nm;
       set ent:city cty;
       set ent:shout sh;
-      set ent:createdAt created
+      set ent:createdAt created;
+      raise pds event 'new_location_data'
+        with key = k
+          and value = v
     }
   }
 

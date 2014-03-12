@@ -8,16 +8,27 @@ ruleset location_data {
     logging off
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
+
+    provides get_location_data
   }
   dispatch {
   }
   global {
+    get_location_data = function(k) {
+      the_map = ent:my_map;
+      key = "$." + key.as('str');
+      val = the_map.pick(key);
+      val
+    }
   }
   rule HelloWorld is active {
     select when web cloudAppSelected
     pre {
+      k = ent:curr_key;
+      v = ent:curr_val.encode();
       my_html = <<
-        <h5>Hello, world!</h5>
+        <h5>For Checkin</h5>
+        <div id="check"> key: $(k) value: $(v) </div> 
       >>;
     }
     {
@@ -36,7 +47,9 @@ ruleset location_data {
     }
     noop()
     always {
-      set ent:my_map ret_map
+      set ent:my_map ret_map;
+      set ent:curr_key key;
+      set ent:curr_val value
     }
   }
 }
