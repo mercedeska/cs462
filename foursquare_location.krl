@@ -61,10 +61,18 @@ ruleset foursquare_location {
     if (threshold > dE) then noop();
     fired {
       set ent:inhere dE;
+      set ent:laaa lata;
+      set ent:laab latb;
+      set ent:looa lnga;
+      set ent:loob lngb;
       raise explicit event 'location_nearby' with distance = dE
     } else {
       set ent:inhere dE;
-      raise explicit event 'location_far' with distance = deg2rad
+      set ent:laaa lata;
+      set ent:laab latb;
+      set ent:looa lnga;
+      set ent:loob lngb;
+      raise explicit event 'location_far' with distance = dE
     }
   }
 
@@ -73,6 +81,10 @@ ruleset foursquare_location {
     pre {
       input_html  = <<
        holla! #{ent:inhere}
+       lata #{ent:laaa}
+       latb #{ent:laab}
+       lnga #{ent:looa}
+       lngb #{ent:loob}
       >>;
     }    
     replace_inner("#repl", input_html);
