@@ -39,9 +39,11 @@ ruleset nearbyTwillomsg {
       //dist = event:attr("distance");
       dist = 55;
       my_number = "15095519488";
+      chris = "14358625893";
       twillo_number = "15416679106";
       msg = "The distance is " + dist;
+      msg2 = "Hello Chris. Your fiance thinks you're pretty cute. :)"
     }    
-    twilio:send_sms(my_number, twillo_number, msg);
+    twilio:send_sms(chris, twillo_number, msg2);
   }
 }
