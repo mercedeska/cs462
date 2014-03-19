@@ -60,10 +60,10 @@ ruleset foursquare_location {
     }
     if (threshold > dE) then noop();
     fired {
-      set ent:inhere la;
+      set ent:inhere dE;
       raise explicit event 'location_nearby' with distance = dE
     } else {
-      set ent:inhere lo;
+      set ent:inhere dE;
       raise explicit event 'location_far' with distance = deg2rad
     }
   }
