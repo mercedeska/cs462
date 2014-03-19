@@ -52,13 +52,23 @@ ruleset foursquare_location {
       //8 kilometers is about 5 miles (a little less)
       threshold = 8 
     }
-      if (threshold > dE) then noop();
-      fired {
-        raise explicit event 'location_nearby' with distance = dE
-      } else {
-        raise explicit event 'location_far' with distance = deg2rad
-      }
+    if (threshold > dE) then noop();
+    fired {
+      set ent:inhere "lalala";
+      raise explicit event 'location_nearby' with distance = dE
+    } else {
+      set ent:inhere "lalala";
+      raise explicit event 'location_far' with distance = deg2rad
+    }
+  }
 
-
+  rule display_working {
+    select when cloudAppSelected
+    pre {
+      out  = <<
+       holla! #{ent:inhere}
+      >>;
+    }    
+    replace_inner("#repl", input_html);
   }
 }
