@@ -8,6 +8,7 @@ ruleset foursquare_location {
     logging off
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
+    use module b505217x6 alias location_data
   }
   dispatch {
   }
@@ -31,15 +32,20 @@ ruleset foursquare_location {
     pre {
       la = event:attr('lat');
       lo = event:attr('long');
+      deets = location_data:get_location_data('fs_checkin');
+      valueType = deets.typeof();
+      lab = deets.pick("$.lat");
+      lob = deets.pick("$.lng");
+
 
       r90   = math:pi()/2;      
       rEk   = 6378;         // radius of the Earth in km       
       // point a
-      lata  = 40.4267290; //change this to la
-      lnga  = -111.9025358; //change this to lo       
+      lata  = la; //change this to la
+      lnga  = lo; //change this to lo       
       // point b
-      latb  = 43.8310154; // change this to current location latitude
-      lngb  = -111.7747790; //change this to current location longitude       
+      latb  = lab; // change this to current location latitude
+      lngb  = lob; //change this to current location longitude       
       // convert co-ordinates to radians
       rlata = math:deg2rad(lata);
       rlnga = math:deg2rad(lnga);
