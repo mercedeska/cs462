@@ -17,7 +17,7 @@ ruleset foursquare_location {
     select when web cloudAppSelected
     pre {
       my_html = <<
-        <h5>Seeing if this is being called!</h5>
+        <div id="repl">Seeing if this is being called!</div>
       >>;
     }
     {
