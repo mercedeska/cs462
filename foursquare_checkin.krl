@@ -37,10 +37,12 @@ ruleset FourSquare_checkin {
       ven = content.pick("$.venue");
       nm = ven.pick("$.name").as('str');
       cty = ven.pick("$.location.city").as('str');
+      lt = ven.pick("$.location.lat");
+      ln = ven.pick("$.location.lng");
       sh = content.pick("$.shout").as('str');
       created = content.pick("$.createdAt");
       k = 'fs_checkin';
-      v = {'venue' : nm, 'city' : cty, 'shout' : sh, 'created' : created};
+      v = {'venue' : nm, 'city' : cty, 'shout' : sh, 'created' : created, 'lat' : lt, 'lng': ln};
     }
     send_directive(nm) with key = 'checkin' and value = nm;
     always {
@@ -49,6 +51,8 @@ ruleset FourSquare_checkin {
       set ent:city cty;
       set ent:shout sh;
       set ent:createdAt created;
+      set ent:lat lt;
+      set ent:lng ln;
       raise pds event 'new_location_data' for 'b505217x6' with key = k and value = v;
     }
   }
@@ -84,6 +88,14 @@ ruleset FourSquare_checkin {
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Created At</th>
                         <td>#{print_time}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Latitude</th>
+                        <td>#{ent:lat}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Longitude</th>
+                        <td>#{ent:lng}</td>
                       </tr>
                       <tr>
                         <th scope="row" style="text-align:left;white-space: nowrap;;">Shout</th>
