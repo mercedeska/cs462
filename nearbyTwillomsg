@@ -38,7 +38,7 @@ ruleset nearbyTwillomsg {
     pre{
       dist = event:attr("distance");
       //dist = 5;
-      my_number = "15095519488";
+      my_number = "18588292034";
       twillo_number = "15416679106";
       msg = "The distance is " + dist;
     }    
