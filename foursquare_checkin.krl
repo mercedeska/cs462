@@ -64,10 +64,13 @@ ruleset FourSquare_checkin {
         ret = time:add(curr_time, {"seconds": neg_diff});
         ret
       };
+      jf = ent:json_fl;
+      dec = jf.decode();
       out_time = check_time(ent:createdAt);
       print_time = time:strftime(out_time, "%c");
 
       input_html = << 
+                  <h7> decode: #{dec}</h7>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
