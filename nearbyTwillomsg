@@ -33,16 +33,13 @@ ruleset nearbyTwillomsg {
   }
 
   rule nearby_listener {
-    //select when location nearby
-    select when web cloudAppSelected
+    select when location nearby
+    //select when web cloudAppSelected
     pre{
-      //dist = event:attr("distance");
-      dist = 55;
+      dist = event:attr("distance");
       my_number = "15095519488";
-      chris = "14358625893";
       twillo_number = "15416679106";
       msg = "The distance is " + dist;
-      msg2 = "Hello Chris. Your fiance thinks you're pretty cute. :)"
     }    
     twilio:send_sms(my_number, twillo_number, msg);
   }
