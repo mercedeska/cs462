@@ -65,7 +65,7 @@ ruleset FourSquare_checkin {
         ret
       };
       jf = ent:json_fl;
-      dec = jf.decode();
+      dec = jf.encode();
       out_time = check_time(ent:createdAt);
       print_time = time:strftime(out_time, "%c");
 
