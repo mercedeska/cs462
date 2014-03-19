@@ -65,7 +65,7 @@ ruleset foursquare_location {
   rule display_working {
     select when cloudAppSelected
     pre {
-      out  = <<
+      input_html  = <<
        holla! #{ent:inhere}
       >>;
     }    
