@@ -50,14 +50,15 @@ ruleset foursquare_location {
       // distance between two co-ordinates in kilometers
       dE = math:great_circle_distance(rlnga,r90 - rlata, rlngb,r90 - rlatb, rEk);
       //8 kilometers is about 5 miles (a little less)
-      threshold = 8 
+      threshold = 8;
+      song = "lalala"
     }
     if (threshold > dE) then noop();
     fired {
-      set ent:inhere "lalala";
+      set ent:inhere song;
       raise explicit event 'location_nearby' with distance = dE
     } else {
-      set ent:inhere "lalala";
+      set ent:inhere song;
       raise explicit event 'location_far' with distance = deg2rad
     }
   }
