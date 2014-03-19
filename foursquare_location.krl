@@ -56,7 +56,7 @@ ruleset foursquare_location {
       fired {
         raise explicit event 'location_nearby' with distance = dE
       } else {
-        raise explicit event 'location_far' with distance = dE
+        raise explicit event 'location_far' with distance = deg2rad
       }
 
 

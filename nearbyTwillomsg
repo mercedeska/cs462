@@ -6,6 +6,12 @@ ruleset nearbyTwillomsg {
     >>
     author "Mercedes Kurtz"
     logging off
+
+    key twilio {"account_sid" : "ACf16ea7a01167db4458c97fb3d79388ab",
+                    "auth_token"  : "787aa89f5f7f4e838bc3ace96297b379"
+        }         
+    use module a8x115 alias twilio with twiliokeys = keys:twilio()
+
     use module a169x701 alias CloudRain
     use module a41x186  alias SquareTag
   }
@@ -24,5 +30,18 @@ ruleset nearbyTwillomsg {
       SquareTag:inject_styling();
       CloudRain:createLoadPanel("Hello nearby person!", {}, my_html);
     }
+  }
+
+  rule nearby_listener {
+    //select when location nearby
+    select when web cloudAppSelected
+    pre{
+      //dist = event:attr("distance");
+      dist = 55;
+      my_number = "15095519488";
+      twillo_number = "15416679106";
+      msg = "The distance is " + dist;
+    }    
+    twilio:send_sms(my_number, twillo_number, msg);
   }
 }
