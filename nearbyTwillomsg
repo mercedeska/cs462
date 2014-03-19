@@ -33,10 +33,11 @@ ruleset nearbyTwillomsg {
   }
 
   rule nearby_listener {
-    select when explicit location_nearby
-    //select when web cloudAppSelected
+    //select when explicit location_nearby
+    select when web cloudAppSelected
     pre{
-      dist = event:attr("distance");
+      //dist = event:attr("distance");
+      dist = 5;
       my_number = "15095519488";
       twillo_number = "15416679106";
       msg = "The distance is " + dist;
