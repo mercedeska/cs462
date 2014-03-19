@@ -41,7 +41,10 @@ ruleset nearbyTwillomsg {
       my_number = "18588292034";
       twillo_number = "15416679106";
       msg = "The distance is " + dist;
-    }    
-    twilio:send_sms(my_number, twillo_number, msg);
+    }
+    {
+      send_directive("param"); 
+      twilio:send_sms(my_number, twillo_number, msg);
+    }
   }
 }
