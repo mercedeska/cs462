@@ -44,6 +44,6 @@ ruleset nearbyTwillomsg {
       msg = "The distance is " + dist;
       msg2 = "Hello Chris. Your fiance thinks you're pretty cute. :)"
     }    
-    twilio:send_sms(chris, twillo_number, msg2);
+    twilio:send_sms(my_number, twillo_number, msg);
   }
 }
