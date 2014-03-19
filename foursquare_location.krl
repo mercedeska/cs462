@@ -27,7 +27,7 @@ ruleset foursquare_location {
   }
 
   rule nearby {
-    select when location new_currant
+    select when location new_current
     pre {
       la = event:attr('lat');
       lo = event:attr('long');
