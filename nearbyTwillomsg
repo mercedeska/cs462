@@ -33,7 +33,7 @@ ruleset nearbyTwillomsg {
   }
 
   rule nearby_listener {
-    select when location nearby
+    select when explicit location_nearby
     //select when web cloudAppSelected
     pre{
       dist = event:attr("distance");
