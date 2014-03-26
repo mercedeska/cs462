@@ -32,11 +32,13 @@ ruleset otherPicoApp {
     pre{
       k = event:attr('key');
       v = event:attr('val');
+      here = "in here!"
     }
     noop()
     always{
       set ent:key k;
-      set ent:val v
+      set ent:val v;
+      set ent:h here
     }
   }
 
@@ -50,6 +52,7 @@ ruleset otherPicoApp {
       time = deets.pick("$.created").as('str');
       shout = deets.pick("$.shout").as("str");
       input_html = << 
+                  <h1>working? #{ent:h}</h1>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
