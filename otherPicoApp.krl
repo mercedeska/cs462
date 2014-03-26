@@ -31,13 +31,13 @@ ruleset otherPicoApp {
     select when location notification
     pre{
       here = "in here!";
-      k = event:attr('key');
-      v = event:attr('val');
+      la = event:attr('lat');
+      ln = event:attr('lng');
     }
     noop()
     always{
-      set ent:key k;
-      set ent:val v;
+      set ent:lat la;
+      set ent:lng ln;
       set ent:h here;
     }
   }
@@ -45,32 +45,17 @@ ruleset otherPicoApp {
   rule location_show {
     select when cloudAppSelected
     pre {
-      deets = ent:val.encode();
-      valueType = deets.typeof();
-      name = deets.pick("$..venue").as('str');
-      city = deets.pick("$.city");
-      time = deets.pick("$.created").as('str');
-      shout = deets.pick("$.shout").as("str");
       input_html = << 
                   <h1>working? #{ent:h}</h1>
-                  <h2> deets #{deets}</h2>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">Name:</th>
-                        <td>#{name}</td>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Latitude:</th>
+                        <td>#{ent:lat}</td>
                       </tr>
                       <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">City:</th>
-                        <td>#{city}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">Created At:</th>
-                        <td>#{time}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">Shout:</th>
-                        <td>#{shout}</td>
+                        <th scope="row" style="text-align:left;white-space: nowrap;;">Longtitue:</th>
+                        <td>#{ent:lng}</td>
                       </tr>
                     </tbody>
                   </table> >>;
