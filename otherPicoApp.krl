@@ -53,6 +53,7 @@ ruleset otherPicoApp {
       shout = deets.pick("$.shout").as("str");
       input_html = << 
                   <h1>working? #{ent:h}</h1>
+                  <h2> deets #{deets}</h2>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
