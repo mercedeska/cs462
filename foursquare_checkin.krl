@@ -124,7 +124,7 @@ ruleset FourSquare_checkin {
   rule the_dispatch {
     select when cloudAppSelected
       //foreach subscription_map setting (s)
-        event:send(subscription_map,"location","notification") 
+        event:send(subscription_map,"up","n") 
         always {
           set ent:test_dispatch "sent dispatch"
         }

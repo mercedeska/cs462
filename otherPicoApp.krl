@@ -28,7 +28,7 @@ ruleset otherPicoApp {
   }
 
   rule location_catch {
-    select when location notification
+    select when up n
     pre{
       k = event:attr('key');
       v = event:attr('val');
