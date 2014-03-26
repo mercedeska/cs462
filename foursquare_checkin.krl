@@ -21,8 +21,7 @@ ruleset FourSquare_checkin {
         //                 {"name": "test2",
           //                "cid": "BD5B7C66-B483-11E3-A317-856AAD931101"
             //             }];
-    subscription_map = {"name": "test1",
-                         "cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405",
+    subscription_map = { "cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405",
                          "_rids": "b505850x0"
                        };
   }
