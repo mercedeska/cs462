@@ -22,7 +22,8 @@ ruleset FourSquare_checkin {
           //                "cid": "BD5B7C66-B483-11E3-A317-856AAD931101"
             //             }];
     subscription_map = {"name": "test1",
-                        "els": "https://cs.kobj.net/sky/event/48A2CD0C-B483-11E3-8919-F118ABD0D405/92/location/notification?_rids=b505850x0"
+                         "cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405",
+                         "_rids": "b505850x0"
                        };
   }
   rule Foursquare is active {
