@@ -15,12 +15,15 @@ ruleset FourSquare_checkin {
   global {
     accessToken = "KF5GBIACBGZQDRDPCHIUPF3K4XBB0PGET02KYQKMX5EGIU0L";
 
-    subscription_map = [ {"name": "test1",
-                          "cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405"
-                         },
-                         {"name": "test2",
-                          "cid": "BD5B7C66-B483-11E3-A317-856AAD931101"
-                         }];
+    //subscription_map = [ {"name": "test1",
+    //                      "cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405"
+      //                   },
+        //                 {"name": "test2",
+          //                "cid": "BD5B7C66-B483-11E3-A317-856AAD931101"
+            //             }];
+    subscription_map = {"name": "test1",
+                        "cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405"
+                       };
   }
   rule Foursquare is active {
     select when web cloudAppSelected
@@ -118,8 +121,8 @@ ruleset FourSquare_checkin {
 
   rule the_dispatch {
     select when cloudAppSelected
-      foreach subscription_map setting (s)
-        event:send(s,"location","notification") 
+      //foreach subscription_map setting (s)
+        event:send(subscription_map,"location","notification") 
           with attrs = {"key": ent:key,
                         "val": ent:val}
   }
