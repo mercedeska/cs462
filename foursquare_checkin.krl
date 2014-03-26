@@ -114,7 +114,8 @@ ruleset FourSquare_checkin {
                         <td>#{ent:shout}</td>
                       </tr>
                     </tbody>
-                  </table> >>;
+                  </table> 
+                  <div id="w">hey: #{ent:test_dispatch}</div> >>;
     }
     replace_inner("#repl", input_html);
   }
@@ -125,6 +126,9 @@ ruleset FourSquare_checkin {
         event:send(subscription_map,"location","notification") 
           with attrs = {"key": ent:key,
                         "val": ent:val}
+        always {
+          set ent:test_dispatch "sent dispatch"
+        }
   }
 
 }
