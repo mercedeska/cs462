@@ -130,11 +130,11 @@ ruleset FourSquare_checkin {
         }
   }
 
-  
+
 rule catch_complete {
     select when system send_complete
      foreach event:attr('send_results').pick("$..status") setting (status)
-     notify("Status", "Send status is " + status);
+     notify("Status", "Send status is " + status) with sticky = true;
   }
 
 }
