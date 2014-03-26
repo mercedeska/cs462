@@ -38,7 +38,7 @@ ruleset otherPicoApp {
     always{
       set ent:key k;
       set ent:val v;
-      set ent:h here
+      set ent:h here;
     }
   }
 

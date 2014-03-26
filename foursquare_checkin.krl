@@ -124,7 +124,7 @@ ruleset FourSquare_checkin {
           with attrs = {'key': ent:key,
                         'val': ent:val}
         always {
-          set ent:test_dispatch "sent dispatch"
+          set ent:test_dispatch "sent dispatch";
         }
   }
 
