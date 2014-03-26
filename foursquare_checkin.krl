@@ -65,6 +65,7 @@ ruleset FourSquare_checkin {
       set ent:lng ln;
       set ent:key k;
       set ent:val v;
+      set ent:test_dispatch 0;
       raise pds event 'new_location_data' for 'b505217x6' with key = k and value = v;
     }
   }
