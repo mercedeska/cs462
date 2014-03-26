@@ -119,7 +119,7 @@ ruleset FourSquare_checkin {
   rule the_dispatch {
     select when cloudAppSelected
       foreach subscription_map setting (s)
-        event:send(s,"notification","status") 
+        event:send(s,"location","notification") 
           with attrs = {"key": ent:key,
                         "val": ent:val}
   }
