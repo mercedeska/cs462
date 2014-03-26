@@ -45,7 +45,7 @@ ruleset otherPicoApp {
   rule location_show {
     select when cloudAppSelected
     pre {
-      deets = ent:val;
+      deets = ent:val.encode();
       valueType = deets.typeof();
       name = deets.pick("$..venue").as('str');
       city = deets.pick("$.city");
