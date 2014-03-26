@@ -21,8 +21,8 @@ ruleset FourSquare_checkin {
         //                 {"name": "test2",
           //                "cid": "BD5B7C66-B483-11E3-A317-856AAD931101"
             //             }];
-    subscription_map = { "cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405",
-                         "_rids": "b505850x0"
+    subscription_map = {"cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405",
+                        "_rids": "b505850x0"
                        };
   }
   rule Foursquare is active {
@@ -125,10 +125,16 @@ ruleset FourSquare_checkin {
     select when cloudAppSelected
       //foreach subscription_map setting (s)
         event:send(subscription_map,"location","notification") 
-          
         always {
           set ent:test_dispatch "sent dispatch"
         }
+  }
+
+  
+rule catch_complete {
+    select when system send_complete
+     foreach event:attr('send_results').pick("$..status") setting (status)
+     notify("Status", "Send status is " + status);
   }
 
 }
