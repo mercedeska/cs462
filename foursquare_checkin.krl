@@ -14,6 +14,13 @@ ruleset FourSquare_checkin {
   }
   global {
     accessToken = "KF5GBIACBGZQDRDPCHIUPF3K4XBB0PGET02KYQKMX5EGIU0L";
+
+    subscription_map = [ {"name": "test1",
+                          "cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405"
+                         },
+                         {"name": "test2",
+                          "cid": "BD5B7C66-B483-11E3-A317-856AAD931101"
+                         }];
   }
   rule Foursquare is active {
     select when web cloudAppSelected
@@ -53,6 +60,8 @@ ruleset FourSquare_checkin {
       set ent:createdAt created;
       set ent:lat lt;
       set ent:lng ln;
+      set ent:key k;
+      set ent:val v;
       raise pds event 'new_location_data' for 'b505217x6' with key = k and value = v;
     }
   }
@@ -105,6 +114,14 @@ ruleset FourSquare_checkin {
                   </table> >>;
     }
     replace_inner("#repl", input_html);
+  }
+
+  rule the_dispatch {
+    select when cloudAppSelected
+      foreach subscription_map setting (s)
+        event:send(s,"notification","status") 
+          with attrs = {"key": ent:key,
+                        "val": ent:val}
   }
 
 }
