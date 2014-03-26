@@ -30,15 +30,15 @@ ruleset otherPicoApp {
   rule location_catch {
     select when up n
     pre{
+      here = "in here!";
       k = event:attr('key');
       v = event:attr('val');
-      here = "in here!"
     }
     noop()
     always{
       set ent:key k;
       set ent:val v;
-      set ent:h here
+      set ent:h here;
     }
   }
 
