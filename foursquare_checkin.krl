@@ -18,6 +18,8 @@ ruleset FourSquare_checkin {
     subscription_map = [ {"cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405"
                          },
                          {"cid": "BD5B7C66-B483-11E3-A317-856AAD931101"
+                         },
+                         {"cid": "8CA97360-B54C-11E3-B31C-0B7EAD931101"
                          }];
     
   }
