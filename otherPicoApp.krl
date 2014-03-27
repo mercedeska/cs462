@@ -32,12 +32,12 @@ ruleset otherPicoApp {
     pre{
       here = "in here!";
       la = event:attr('lat');
-      ln = event:attr('lng');
+      lo = event:attr('lng');
     }
     noop()
     always{
       set ent:lat la;
-      set ent:lng ln;
+      set ent:lng lo;
       set ent:h here;
     }
   }
