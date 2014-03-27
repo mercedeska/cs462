@@ -31,12 +31,10 @@ ruleset otherPicoApp {
     select when location notification
     pre{
       here = "boom sha ka la ka!";
-      k = event:attr('key');
       v = event:attr('val');
     }
     noop()
     always{
-      set ent:key k;
       set ent:val v;
       set ent:h here;
     }
@@ -53,6 +51,7 @@ ruleset otherPicoApp {
       shout = deets.pick("$.shout").as("str");
       input_html = << 
                   <h1>working? #{ent:h}</h1>
+                  <h2>type: #{valueType}</h2>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
