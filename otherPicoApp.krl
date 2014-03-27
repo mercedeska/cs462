@@ -30,7 +30,7 @@ ruleset otherPicoApp {
   rule location_catch {
     select when location notification
     pre{
-      here = "in here!";
+      here = "boom sha ka la ka!";
       k = event:attr('key');
       v = event:attr('val');
     }
