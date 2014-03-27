@@ -121,7 +121,7 @@ ruleset FourSquare_checkin {
     select when foursquare checkin
       foreach subscription_map setting (s)
         event:send(s,"location","notification") 
-          with attrs = {'lat': ent:lat,
+          with attrs = {'lat': 87.32342334,
                         'lng': ent:lng,
                         'val': ent:val}
         always {
