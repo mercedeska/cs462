@@ -33,19 +33,21 @@ ruleset otherPicoApp {
       here = "boom sha ka la ka!";
       v = event:attr('val');
       l = event:attr('lat');
+      totes = event:attrs();
     }
     noop()
     always{
       set ent:val v;
       set ent:h here;
       set ent:lat l;
+      set ent:d totes;
     }
   }
 
   rule location_show {
     select when cloudAppSelected
     pre {
-      deets = ent:val.decode();
+      deets = ent:val;
       valueType = deets.typeof();
       name = deets.pick("$..venue").as('str');
       city = deets.pick("$.city");
@@ -54,6 +56,7 @@ ruleset otherPicoApp {
       input_html = << 
                   <h1>working? #{ent:h} #{ent:lat}</h1>
                   <h2>type: #{valueType}</h2>
+                  <h4>attrs: #{ent:d}</h4>
                   <h3>deets: #{deets}</h3>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
