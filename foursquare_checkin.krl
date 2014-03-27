@@ -15,14 +15,14 @@ ruleset FourSquare_checkin {
   global {
     accessToken = "KF5GBIACBGZQDRDPCHIUPF3K4XBB0PGET02KYQKMX5EGIU0L";
 
-    subscription_map = [ {"cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405"
+    subscription_map = [ {"cid": "17CD3CB6-B547-11E3-95BD-A4DC283232C8"
                          },
                          {"cid": "BD5B7C66-B483-11E3-A317-856AAD931101"
                          },
                          {"cid": "71AD4628-B546-11E3-8A24-707BD61CF0AC"
                          }];    
   }
-  
+
   rule Foursquare is active {
     select when web cloudAppSelected
     pre {
@@ -129,14 +129,6 @@ ruleset FourSquare_checkin {
           set ent:test_dispatch "sent dispatch";
         }
   }
-
-
-rule catch_complete {
-    select when system send_complete
-     foreach event:attr('send_results').pick("$..status") setting (status)
-     notify("Status", "Send status is " + status) with sticky = true;
-  }
-
 }
 
 //https://cs.kobj.net/sky/event/8D87DEF2-A30E-11E3-8588-DF7CD61CF0AC/33/foursquare/checkin?_rids=b505217x4
