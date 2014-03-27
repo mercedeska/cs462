@@ -53,7 +53,7 @@ ruleset otherPicoApp {
       city = deets.pick("$.city");
       time = deets.pick("$.created").as('str');
       shout = deets.pick("$.shout").as("str");
-      dec = ent:d.decode();
+      dec = ent:d.encode();
       input_html = << 
                   <h1>working? #{ent:h}</h1>
                   <h2>type: #{valueType}</h2>
