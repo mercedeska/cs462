@@ -47,38 +47,10 @@ ruleset otherPicoApp {
   rule location_show {
     select when cloudAppSelected
     pre {
-      deets = ent:val;
-      valueType = deets.typeof();
-      name = deets.pick("$..venue").as('str');
-      city = deets.pick("$.city");
-      time = deets.pick("$.created").as('str');
-      shout = deets.pick("$.shout").as("str");
       dec = ent:d.encode();
       input_html = << 
-                  <h1>working? #{ent:h}</h1>
-                  <h2>type: #{valueType}</h2>
                   <h4>attrs: #{dec}</h4>
-                  <h3>deets: #{deets}</h3>
-                  <table style="border-spaceing:3px;width=22em;font-size:87%;;">
-                    <tbody>
-                      <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">Name:</th>
-                        <td>#{name}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">City:</th>
-                        <td>#{city}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">Created At:</th>
-                        <td>#{time}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row" style="text-align:left;white-space: nowrap;;">Shout:</th>
-                        <td>#{shout}</td>
-                      </tr>
-                    </tbody>
-                  </table> >>;
+                  >>;
     }
     replace_inner("#display", input_html);
   }
