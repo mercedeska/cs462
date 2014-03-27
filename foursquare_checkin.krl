@@ -119,16 +119,6 @@ ruleset FourSquare_checkin {
     replace_inner("#repl", input_html);
   }
 
-  rule the_dispatch {
-    select when foursquare checkin
-      foreach subscription_map setting (s)
-        event:send(s,"location","notification") 
-          with attrs = {'key': ent:key,
-                        'val': ent:val}
-        always {
-          set ent:test_dispatch "sent dispatch";
-        }
-  }
 }
 
 //https://cs.kobj.net/sky/event/8D87DEF2-A30E-11E3-8588-DF7CD61CF0AC/33/foursquare/checkin?_rids=b505217x4
