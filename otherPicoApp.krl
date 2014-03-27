@@ -50,6 +50,8 @@ ruleset otherPicoApp {
       dec = ent:d.encode();
       input_html = << 
                   <h4>attrs: #{dec}</h4>
+
+                  <h4>lat: #{lat}</h4>
                   >>;
     }
     replace_inner("#display", input_html);
