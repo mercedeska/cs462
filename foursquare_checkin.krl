@@ -18,9 +18,11 @@ ruleset FourSquare_checkin {
     subscription_map = [ {"cid": "48A2CD0C-B483-11E3-8919-F118ABD0D405"
                          },
                          {"cid": "BD5B7C66-B483-11E3-A317-856AAD931101"
-                         }];
-    
+                         },
+                         {"cid": "71AD4628-B546-11E3-8A24-707BD61CF0AC"
+                         }];    
   }
+  
   rule Foursquare is active {
     select when web cloudAppSelected
     pre {
@@ -121,7 +123,8 @@ ruleset FourSquare_checkin {
     select when foursquare checkin
       foreach subscription_map setting (s)
         event:send(s,"location","notification") 
-          with attrs = {'val': ent:val}
+          with attrs = {'key': ent:key,
+                        'val': ent:val}
         always {
           set ent:test_dispatch "sent dispatch";
         }
