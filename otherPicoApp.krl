@@ -57,7 +57,7 @@ ruleset otherPicoApp {
       input_html = << 
                   <h1>working? #{ent:h}</h1>
                   <h2>type: #{valueType}</h2>
-                  <h4>attrs: #{ent:d}</h4>
+                  <h4>attrs: #{dec}</h4>
                   <h3>deets: #{deets}</h3>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
