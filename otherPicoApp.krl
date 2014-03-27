@@ -37,6 +37,7 @@ ruleset otherPicoApp {
     always{
       set ent:val v;
       set ent:h here;
+      set ent:sec "now?";
     }
   }
 
@@ -50,8 +51,9 @@ ruleset otherPicoApp {
       time = deets.pick("$.created").as('str');
       shout = deets.pick("$.shout").as("str");
       input_html = << 
-                  <h1>working? #{ent:h}</h1>
+                  <h1>working? #{ent:h} #{ent:sec}</h1>
                   <h2>type: #{valueType}</h2>
+                  <h3>deets: #{deets}</h3>
                   <table style="border-spaceing:3px;width=22em;font-size:87%;;">
                     <tbody>
                       <tr>
