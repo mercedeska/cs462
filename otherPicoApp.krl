@@ -41,6 +41,7 @@ ruleset otherPicoApp {
       set ent:h here;
       set ent:lat l;
       set ent:d totes;
+      set ent:sre "getting?";
     }
   }
 
@@ -54,7 +55,7 @@ ruleset otherPicoApp {
       time = deets.pick("$.created").as('str');
       shout = deets.pick("$.shout").as("str");
       input_html = << 
-                  <h1>working? #{ent:h} #{ent:lat}</h1>
+                  <h1>working? #{ent:h} #{ent:sre}</h1>
                   <h2>type: #{valueType}</h2>
                   <h4>attrs: #{ent:d}</h4>
                   <h3>deets: #{deets}</h3>
